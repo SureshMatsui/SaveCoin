@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=SpeedCoin
+Comment=SpeedCoin P2P Cryptocurrency
+Comment[fr]=SpeedCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=SpeedCoin, eşten eşe kriptografik sanal para birimi
+Exec=SpeedCoin-qt %u
+Terminal=false
+Type=Application
+Icon=SpeedCoin128
+MimeType=x-scheme-handler/SpeedCoin;
+Categories=Office;Finance;

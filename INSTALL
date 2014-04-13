@@ -1,0 +1,5 @@
+Building SpeedCoin
+
+See doc/build-*.md for instructions on building SpeedCoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of SpeedCoin.

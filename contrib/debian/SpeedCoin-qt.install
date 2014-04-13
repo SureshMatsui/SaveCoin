@@ -1,0 +1,6 @@
+SpeedCoin-qt usr/bin
+share/pixmaps/SpeedCoin32.xpm usr/share/pixmaps
+share/pixmaps/SpeedCoin16.xpm usr/share/pixmaps
+share/pixmaps/SpeedCoin128.png usr/share/pixmaps
+debian/SpeedCoin-qt.desktop usr/share/applications
+debian/SpeedCoin-qt.protocol usr/share/kde4/services/
