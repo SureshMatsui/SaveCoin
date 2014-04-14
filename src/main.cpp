@@ -1140,7 +1140,7 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
     return nSubsidy + nFees;
 }
 
-static const int64_t nTargetTimespan = 14 * 24 * 60 * 60; // 140 seconds
+static const int64_t nTargetTimespan = 140; // 140 seconds
 static const int64_t nTargetSpacing = 35; // 35 seconds
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing;
 
