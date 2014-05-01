@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The SpeedCoin developers
+// Copyright (c) 2009-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_DB_H
-#define SpeedCoin_DB_H
+#ifndef SaveCoin_DB_H
+#define SaveCoin_DB_H
 
 #include "serialize.h"
 #include "sync.h"
@@ -305,4 +305,4 @@ public:
     bool static Rewrite(const std::string& strFile, const char* pszSkip = NULL);
 };
 
-#endif // SpeedCoin_DB_H
+#endif // SaveCoin_DB_H

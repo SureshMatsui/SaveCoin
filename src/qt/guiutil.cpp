@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2013 The SpeedCoin developers
+// Copyright (c) 2011-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "guiutil.h"
 
-#include "SpeedCoinaddressvalidator.h"
-#include "SpeedCoinunits.h"
+#include "SaveCoinaddressvalidator.h"
+#include "SaveCoinunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -66,7 +66,7 @@ QString dateTimeStr(qint64 nTime)
     return dateTimeStr(QDateTime::fromTime_t((qint32)nTime));
 }
 
-QFont SpeedCoinAddressFont()
+QFont SaveCoinAddressFont()
 {
     QFont font("Monospace");
     font.setStyleHint(QFont::TypeWriter);
@@ -77,12 +77,12 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 {
     parent->setFocusProxy(widget);
 
-    widget->setFont(SpeedCoinAddressFont());
+    widget->setFont(SaveCoinAddressFont());
 #if QT_VERSION >= 0x040700
-    widget->setPlaceholderText(QObject::tr("Enter a SpeedCoin address (e.g. SdXoAYrDWGPU2CqF9VUk8GGzbWgeqCuGep)"));
+    widget->setPlaceholderText(QObject::tr("Enter a SaveCoin address (e.g. SdXoAYrDWGPU2CqF9VUk8GGzbWgeqCuGep)"));
 #endif
-    widget->setValidator(new SpeedCoinAddressEntryValidator(parent));
-    widget->setCheckValidator(new SpeedCoinAddressCheckValidator(parent));
+    widget->setValidator(new SaveCoinAddressEntryValidator(parent));
+    widget->setCheckValidator(new SaveCoinAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -94,10 +94,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseSpeedCoinURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseSaveCoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no SpeedCoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("SpeedCoin"))
+    // return if URI is not valid or is no SaveCoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("SaveCoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -133,7 +133,7 @@ bool parseSpeedCoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!SpeedCoinUnits::parse(SpeedCoinUnits::SPC, i->second, &rv.amount))
+                if(!SaveCoinUnits::parse(SaveCoinUnits::SPC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -151,28 +151,28 @@ bool parseSpeedCoinURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseSpeedCoinURI(QString uri, SendCoinsRecipient *out)
+bool parseSaveCoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert SpeedCoin:// to SpeedCoin:
+    // Convert SaveCoin:// to SaveCoin:
     //
-    //    Cannot handle this later, because SpeedCoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because SaveCoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("SpeedCoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("SaveCoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "SpeedCoin:");
+        uri.replace(0, 10, "SaveCoin:");
     }
     QUrl uriInstance(uri);
-    return parseSpeedCoinURI(uriInstance, out);
+    return parseSaveCoinURI(uriInstance, out);
 }
 
-QString formatSpeedCoinURI(const SendCoinsRecipient &info)
+QString formatSaveCoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("SpeedCoin:%1").arg(info.address);
+    QString ret = QString("SaveCoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(SpeedCoinUnits::format(SpeedCoinUnits::SPC, info.amount));
+        ret += QString("?amount=%1").arg(SaveCoinUnits::format(SaveCoinUnits::SPC, info.amount));
         paramCount++;
     }
 
@@ -195,7 +195,7 @@ QString formatSpeedCoinURI(const SendCoinsRecipient &info)
 
 bool isDust(const QString& address, qint64 amount)
 {
-    CTxDestination dest = CSpeedCoinAddress(address.toStdString()).Get();
+    CTxDestination dest = CSaveCoinAddress(address.toStdString()).Get();
     CScript script; script.SetDestination(dest);
     CTxOut txOut(amount, script);
     return txOut.IsDust(CTransaction::nMinRelayTxFee);
@@ -382,12 +382,12 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "SpeedCoin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "SaveCoin.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for SpeedCoin.lnk
+    // check for SaveCoin.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -464,7 +464,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "SpeedCoin.desktop";
+    return GetAutostartDir() / "SaveCoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -502,10 +502,10 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a SpeedCoin.desktop file to the autostart directory:
+        // Write a SaveCoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=SpeedCoin\n";
+        optionFile << "Name=SaveCoin\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -524,7 +524,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the SpeedCoin app
+    // loop through the list of startup items and try to find the SaveCoin app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -545,21 +545,21 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef SpeedCoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef SaveCoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, SpeedCoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, SaveCoinAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef SpeedCoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef SaveCoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, SpeedCoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, SaveCoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add SpeedCoin app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, SpeedCoinAppUrl, NULL, NULL);
+        // add SaveCoin app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, SaveCoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {
         // remove item

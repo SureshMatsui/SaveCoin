@@ -83,10 +83,10 @@ void RunTest(const TestVector &test) {
         key.Encode(data);
         pubkey.Encode(data);
         // Test private key
-        CSpeedCoinExtKey b58key; b58key.SetKey(key);
+        CSaveCoinExtKey b58key; b58key.SetKey(key);
         BOOST_CHECK(b58key.ToString() == derive.prv);
         // Test public key
-        CSpeedCoinExtPubKey b58pubkey; b58pubkey.SetKey(pubkey);
+        CSaveCoinExtPubKey b58pubkey; b58pubkey.SetKey(pubkey);
         BOOST_CHECK(b58pubkey.ToString() == derive.pub);
         // Derive new keys
         CExtKey keyNew;

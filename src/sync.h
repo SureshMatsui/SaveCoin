@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The SpeedCoin developers
+// Copyright (c) 2009-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_SYNC_H
-#define SpeedCoin_SYNC_H
+#ifndef SaveCoin_SYNC_H
+#define SaveCoin_SYNC_H
 
 #include "threadsafety.h"
 

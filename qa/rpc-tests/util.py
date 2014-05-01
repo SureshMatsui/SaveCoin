@@ -2,10 +2,10 @@
 # Helpful routines for regression testing
 #
 
-# Add python-SpeedCoinrpc to module search path:
+# Add python-SaveCoinrpc to module search path:
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-SpeedCoinrpc"))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-SaveCoinrpc"))
 
 from decimal import Decimal
 import json
@@ -13,7 +13,7 @@ import shutil
 import subprocess
 import time
 
-from SpeedCoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from SaveCoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 START_P2P_PORT=11000
@@ -56,26 +56,26 @@ def initialize_chain(test_dir):
     """
     Create (or copy from cache) a 200-block-long chain and
     4 wallets.
-    SpeedCoind and SpeedCoin-cli must be in search path.
+    SaveCoind and SaveCoin-cli must be in search path.
     """
 
     if not os.path.isdir(os.path.join("cache", "node0")):
-        # Create cache directories, run SpeedCoinds:
-        SpeedCoinds = []
+        # Create cache directories, run SaveCoinds:
+        SaveCoinds = []
         for i in range(4):
             datadir = os.path.join("cache", "node"+str(i))
             os.makedirs(datadir)
-            with open(os.path.join(datadir, "SpeedCoin.conf"), 'w') as f:
+            with open(os.path.join(datadir, "SaveCoin.conf"), 'w') as f:
                 f.write("regtest=1\n");
                 f.write("rpcuser=rt\n");
                 f.write("rpcpassword=rt\n");
                 f.write("port="+str(START_P2P_PORT+i)+"\n");
                 f.write("rpcport="+str(START_RPC_PORT+i)+"\n");
-            args = [ "SpeedCoind", "-keypool=1", "-datadir="+datadir ]
+            args = [ "SaveCoind", "-keypool=1", "-datadir="+datadir ]
             if i > 0:
                 args.append("-connect=127.0.0.1:"+str(START_P2P_PORT))
-            SpeedCoinds.append(subprocess.Popen(args))
-            subprocess.check_output([ "SpeedCoin-cli", "-datadir="+datadir,
+            SaveCoinds.append(subprocess.Popen(args))
+            subprocess.check_output([ "SaveCoin-cli", "-datadir="+datadir,
                                       "-rpcwait", "getblockcount"])
 
         rpcs = []
@@ -106,15 +106,15 @@ def initialize_chain(test_dir):
         to_dir = os.path.join(test_dir,  "node"+str(i))
         shutil.copytree(from_dir, to_dir)
 
-SpeedCoind_processes = []
+SaveCoind_processes = []
 
 def start_nodes(num_nodes, dir):
-    # Start SpeedCoinds, and wait for RPC interface to be up and running:
+    # Start SaveCoinds, and wait for RPC interface to be up and running:
     for i in range(num_nodes):
         datadir = os.path.join(dir, "node"+str(i))
-        args = [ "SpeedCoind", "-datadir="+datadir ]
-        SpeedCoind_processes.append(subprocess.Popen(args))
-        subprocess.check_output([ "SpeedCoin-cli", "-datadir="+datadir,
+        args = [ "SaveCoind", "-datadir="+datadir ]
+        SaveCoind_processes.append(subprocess.Popen(args))
+        subprocess.check_output([ "SaveCoin-cli", "-datadir="+datadir,
                                   "-rpcwait", "getblockcount"])
     # Create&return JSON-RPC connections
     rpc_connections = []
@@ -124,7 +124,7 @@ def start_nodes(num_nodes, dir):
     return rpc_connections
 
 def stop_nodes():
-    for process in SpeedCoind_processes:
+    for process in SaveCoind_processes:
         process.kill()
 
 def connect_nodes(from_connection, node_num):

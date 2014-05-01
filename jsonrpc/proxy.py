@@ -1,1 +1,1 @@
-from SpeedCoinrpc.authproxy import AuthServiceProxy as ServiceProxy, JSONRPCException
+from SaveCoinrpc.authproxy import AuthServiceProxy as ServiceProxy, JSONRPCException

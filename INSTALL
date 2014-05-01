@@ -1,5 +1,5 @@
-Building SpeedCoin
+Building SaveCoin
 
-See doc/build-*.md for instructions on building SpeedCoind,
+See doc/build-*.md for instructions on building SaveCoind,
 the intended-for-services, no-graphical-interface, reference
-implementation of SpeedCoin.
+implementation of SaveCoin.

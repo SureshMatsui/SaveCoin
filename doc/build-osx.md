@@ -1,6 +1,6 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build SpeedCoind(headless client) for OSX.
+This guide will show you how to build SaveCoind(headless client) for OSX.
 
 Notes
 -----
@@ -52,14 +52,14 @@ Optional: install Qt4
 
     sudo port install qt4-mac qrencode protobuf-cpp
 
-### Building `SpeedCoind`
+### Building `SaveCoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone git@github.com:SpeedCoin/SpeedCoin.git SpeedCoin
-        cd SpeedCoin
+        git clone git@github.com:SaveCoin/SaveCoin.git SaveCoin
+        cd SaveCoin
 
-2.  Build SpeedCoind (and SpeedCoin-Qt, if configured):
+2.  Build SaveCoind (and SaveCoin-Qt, if configured):
 
         ./autogen.sh
         ./configure
@@ -88,14 +88,14 @@ If not, you can ensure that the Homebrew OpenSSL is correctly linked by running
 
 Rerunning "openssl version" should now return the correct version.
 
-### Building `SpeedCoind`
+### Building `SaveCoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/SpeedCoin/SpeedCoin.git
-        cd SpeedCoin
+        git clone https://github.com/SaveCoin/SaveCoin.git
+        cd SaveCoin
 
-2.  Build SpeedCoind:
+2.  Build SaveCoind:
 
         ./autogen.sh
         ./configure
@@ -107,11 +107,11 @@ Rerunning "openssl version" should now return the correct version.
 
 Creating a release build
 ------------------------
-You can ignore this section if you are building `SpeedCoind` for your own use.
+You can ignore this section if you are building `SaveCoind` for your own use.
 
-SpeedCoind/SpeedCoin-cli binaries are not included in the SpeedCoin-Qt.app bundle.
+SaveCoind/SaveCoin-cli binaries are not included in the SaveCoin-Qt.app bundle.
 
-If you are building `SpeedCoind` or `SpeedCoin-Qt` for others, your build machine should be set up
+If you are building `SaveCoind` or `SaveCoin-Qt` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -129,32 +129,32 @@ For MacPorts, that means editing your macports.conf and setting
 ... and then uninstalling and re-installing, or simply rebuilding, all ports.
 
 As of December 2012, the `boost` port does not obey `macosx_deployment_target`.
-Download `http://gavinandresen-SpeedCoin.s3.amazonaws.com/boost_macports_fix.zip`
+Download `http://gavinandresen-SaveCoin.s3.amazonaws.com/boost_macports_fix.zip`
 for a fix.
 
-Once dependencies are compiled, see release-process.md for how the SpeedCoin-Qt.app
+Once dependencies are compiled, see release-process.md for how the SaveCoin-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
 
-It's now available at `./SpeedCoind`, provided that you are still in the `src`
+It's now available at `./SaveCoind`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./SpeedCoind` to get the filename where it should be put, or just try these
+Run `./SaveCoind` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=SpeedCoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/SpeedCoin/SpeedCoin.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/SpeedCoin/SpeedCoin.conf"
+    echo -e "rpcuser=SaveCoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/SaveCoin/SaveCoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/SaveCoin/SaveCoin.conf"
 
 When next you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
 you can monitor its process by looking at the debug.log file, like this:
 
-    tail -f $HOME/Library/Application\ Support/SpeedCoin/debug.log
+    tail -f $HOME/Library/Application\ Support/SaveCoin/debug.log
 
 Other commands:
 
-    ./SpeedCoind -daemon # to start the SpeedCoin daemon.
-    ./SpeedCoin-cli --help  # for a list of command-line options.
-    ./SpeedCoin-cli help    # When the daemon is running, to get a list of RPC commands
+    ./SaveCoind -daemon # to start the SaveCoin daemon.
+    ./SaveCoin-cli --help  # for a list of command-line options.
+    ./SaveCoin-cli help    # When the daemon is running, to get a list of RPC commands

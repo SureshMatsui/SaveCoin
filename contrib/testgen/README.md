@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven SpeedCoin tests.
+Utilities to generate test vectors for the data-driven SaveCoin tests.
 
 Usage: 
 

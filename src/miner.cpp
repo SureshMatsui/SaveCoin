@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,7 @@
 #endif
 //////////////////////////////////////////////////////////////////////////////
 //
-// SpeedCoinMiner
+// SaveCoinMiner
 //
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)
@@ -469,7 +469,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return false;
 
     //// debug print
-    LogPrintf("SpeedCoinMiner:\n");
+    LogPrintf("SaveCoinMiner:\n");
     LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex(), hashTarget.GetHex());
     pblock->print();
     LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue));
@@ -478,7 +478,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("SpeedCoinMiner : generated block is stale");
+            return error("SaveCoinMiner : generated block is stale");
 
         // Remove key from key pool
         reservekey.KeepKey();
@@ -492,17 +492,17 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         // Process this block the same as if we had received it from another node
         CValidationState state;
         if (!ProcessBlock(state, NULL, pblock))
-            return error("SpeedCoinMiner : ProcessBlock, block not accepted");
+            return error("SaveCoinMiner : ProcessBlock, block not accepted");
     }
 
     return true;
 }
 
-void static SpeedCoinMiner(CWallet *pwallet)
+void static SaveCoinMiner(CWallet *pwallet)
 {
-    LogPrintf("SpeedCoinMiner started\n");
+    LogPrintf("SaveCoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("SpeedCoin-miner");
+    RenameThread("SaveCoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -528,7 +528,7 @@ void static SpeedCoinMiner(CWallet *pwallet)
         CBlock *pblock = &pblocktemplate->block;
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        LogPrintf("Running SpeedCoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        LogPrintf("Running SaveCoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -639,12 +639,12 @@ void static SpeedCoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        LogPrintf("SpeedCoinMiner terminated\n");
+        LogPrintf("SaveCoinMiner terminated\n");
         throw;
     }
 }
 
-void GenerateSpeedCoins(bool fGenerate, CWallet* pwallet, int nThreads)
+void GenerateSaveCoins(bool fGenerate, CWallet* pwallet, int nThreads)
 {
     static boost::thread_group* minerThreads = NULL;
 
@@ -667,7 +667,7 @@ void GenerateSpeedCoins(bool fGenerate, CWallet* pwallet, int nThreads)
 
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
-        minerThreads->create_thread(boost::bind(&SpeedCoinMiner, pwallet));
+        minerThreads->create_thread(boost::bind(&SaveCoinMiner, pwallet));
 }
 
 #endif

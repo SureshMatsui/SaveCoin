@@ -1,5 +1,5 @@
 ---
-name: "SpeedCoin"
+name: "SaveCoin"
 suites:
 - "precise"
 architectures:
@@ -95,4 +95,4 @@ script: |
   done
   #
   cd $STAGING
-  find include lib bin host | sort | zip -X@ $OUTDIR/SpeedCoin-deps-linux${GBUILD_BITS}-gitian-r3.zip
+  find include lib bin host | sort | zip -X@ $OUTDIR/SaveCoin-deps-linux${GBUILD_BITS}-gitian-r3.zip

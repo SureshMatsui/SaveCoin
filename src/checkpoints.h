@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2013 The SpeedCoin developers
+// Copyright (c) 2009-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_CHECKPOINT_H
-#define SpeedCoin_CHECKPOINT_H
+#ifndef SaveCoin_CHECKPOINT_H
+#define SaveCoin_CHECKPOINT_H
 
 #include <map>
 

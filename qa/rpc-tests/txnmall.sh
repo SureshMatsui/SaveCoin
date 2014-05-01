@@ -10,8 +10,8 @@ fi
 
 set -f
 
-SpeedCoinD=${1}/SpeedCoind
-CLI=${1}/SpeedCoin-cli
+SaveCoinD=${1}/SaveCoind
+CLI=${1}/SaveCoin-cli
 
 DIR="${BASH_SOURCE%/*}"
 SENDANDWAIT="${DIR}/send.sh"
@@ -26,13 +26,13 @@ D=$(mktemp -d test.XXXXX)
 D1=${D}/node1
 CreateDataDir $D1 port=11000 rpcport=11001
 B1ARGS="-datadir=$D1"
-$SpeedCoinD $B1ARGS &
+$SaveCoinD $B1ARGS &
 B1PID=$!
 
 D2=${D}/node2
 CreateDataDir $D2 port=11010 rpcport=11011
 B2ARGS="-datadir=$D2"
-$SpeedCoinD $B2ARGS &
+$SaveCoinD $B2ARGS &
 B2PID=$!
 
 # Wait until both nodes are at the same block number
@@ -82,14 +82,14 @@ CheckBalance "$B2ARGS" 0
 # restart B2 with no connection
 $CLI $B2ARGS stop > /dev/null 2>&1
 wait $B2PID
-$SpeedCoinD $B2ARGS &
+$SaveCoinD $B2ARGS &
 B2PID=$!
 
 B2ADDRESS=$( $CLI $B2ARGS getaccountaddress "from1" )
 
 # Have B1 create two transactions; second will
 # spend change from first, since B1 starts with only a single
-# 50 SpeedCoin output:
+# 50 SaveCoin output:
 $CLI $B1ARGS move "" "foo" 10.0 > /dev/null
 $CLI $B1ARGS move "" "bar" 10.0 > /dev/null
 TXID1=$( $CLI $B1ARGS sendfrom foo $B2ADDRESS 1.0 0)

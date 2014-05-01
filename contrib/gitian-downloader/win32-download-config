@@ -1,11 +1,11 @@
 --- 
-name: SpeedCoin
+name: SaveCoin
 urls:
-- http://SpeedCoin.org/SpeedCoin-latest-win32-gitian.zip
+- http://SaveCoin.org/SaveCoin-latest-win32-gitian.zip
 rss:
 - url: http://sourceforge.net/api/file/index/project-id/244765/mtime/desc/limit/100/rss
   xpath: //item/link/text()
-  pattern: SpeedCoin-\d+.\d+.\d+-win32-gitian.zip
+  pattern: SaveCoin-\d+.\d+.\d+-win32-gitian.zip
 signers:
   0A82509767C7D4A5D14DA2301AE1D35043E08E54:
     weight: 40

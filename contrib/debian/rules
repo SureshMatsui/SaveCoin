@@ -1,33 +1,33 @@
 #!/usr/bin/make -f
 # -*- mode: makefile; coding: utf-8 -*-
 
-#DEB_MAKE_CHECK_TARGET = test_SpeedCoin
-#build/SpeedCoind::
-#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_SpeedCoin)
+#DEB_MAKE_CHECK_TARGET = test_SaveCoin
+#build/SaveCoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_SaveCoin)
 
-DEB_INSTALL_EXAMPLES_SpeedCoind += debian/examples/*
-DEB_INSTALL_MANPAGES_SpeedCoind += debian/manpages/*
+DEB_INSTALL_EXAMPLES_SaveCoind += debian/examples/*
+DEB_INSTALL_MANPAGES_SaveCoind += debian/manpages/*
 
 %:
 	dh --with bash-completion $@
 
 override_dh_auto_build:
-	cd src; $(MAKE) -f makefile.unix SpeedCoind
+	cd src; $(MAKE) -f makefile.unix SaveCoind
 	$(MAKE)
 
 override_dh_auto_clean:
-	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f SpeedCoin-qt; fi
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f SaveCoin-qt; fi
 	cd src; $(MAKE) -f makefile.unix clean
 
 override_dh_auto_configure:
-	qmake SpeedCoin-qt.pro USE_QRCODE=1
+	qmake SaveCoin-qt.pro USE_QRCODE=1
 
 override_dh_auto_test:
-	cd src; $(MAKE) -f makefile.unix test_SpeedCoin
-	src/test_SpeedCoin
+	cd src; $(MAKE) -f makefile.unix test_SaveCoin
+	src/test_SaveCoin
 
 # Ensure wrapper is set executable
-binary-post-install/SpeedCoind:
-	chmod +x $(cdbs_curdestdir)usr/bin/SpeedCoind
-binary-post-install/SpeedCoin-qt:
-	chmod +x $(cdbs_curdestdir)usr/bin/SpeedCoin-qt
+binary-post-install/SaveCoind:
+	chmod +x $(cdbs_curdestdir)usr/bin/SaveCoind
+binary-post-install/SaveCoin-qt:
+	chmod +x $(cdbs_curdestdir)usr/bin/SaveCoin-qt

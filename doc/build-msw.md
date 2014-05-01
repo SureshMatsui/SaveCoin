@@ -72,12 +72,12 @@ MSYS shell:
 	mkdir miniupnpc
 	cp *.h miniupnpc/
 
-SpeedCoin
+SaveCoin
 -------
 MSYS shell:
 
-	cd \SpeedCoin
+	cd \SaveCoin
 	sh autogen.sh
 	sh configure
 	mingw32-make
-	strip SpeedCoind.exe
+	strip SaveCoind.exe

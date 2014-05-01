@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The SpeedCoin developers
+// Copyright (c) 2011-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 #include "ui_aboutdialog.h"
 #include "ui_helpmessagedialog.h"
 
-#include "SpeedCoingui.h"
+#include "SaveCoingui.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 
@@ -26,7 +26,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
     ui->setupUi(this);
 
     // Set current copyright year
-    ui->copyrightLabel->setText(tr("Copyright") + QString(" &copy; 2009-%1 ").arg(COPYRIGHT_YEAR) + tr("The SpeedCoin Core developers"));
+    ui->copyrightLabel->setText(tr("Copyright") + QString(" &copy; 2009-%1 ").arg(COPYRIGHT_YEAR) + tr("The SaveCoin Core developers"));
 }
 
 void AboutDialog::setModel(ClientModel *model)
@@ -64,12 +64,12 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent) :
     ui->setupUi(this);
     GUIUtil::restoreWindowGeometry("nHelpMessageDialogWindow", this->size(), this);
 
-    header = tr("SpeedCoin Core") + " " + tr("version") + " " +
+    header = tr("SaveCoin Core") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  SpeedCoin-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  SaveCoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
-    coreOptions = QString::fromStdString(HelpMessage(HMM_SpeedCoin_QT));
+    coreOptions = QString::fromStdString(HelpMessage(HMM_SaveCoin_QT));
 
     uiOptions = tr("UI options") + ":\n" +
         "  -lang=<lang>           " + tr("Set language, for example \"de_DE\" (default: system locale)") + "\n" +
@@ -77,7 +77,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent) :
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n" +
         "  -choosedatadir         " + tr("Choose data directory on startup (default: 0)");
 
-    ui->helpMessageLabel->setFont(GUIUtil::SpeedCoinAddressFont());
+    ui->helpMessageLabel->setFont(GUIUtil::SaveCoinAddressFont());
 
     // Set help message text
     ui->helpMessageLabel->setText(header + "\n" + coreOptions + "\n" + uiOptions);
@@ -114,7 +114,7 @@ void HelpMessageDialog::on_okButton_accepted()
 
 
 /** "Shutdown" window */
-void ShutdownWindow::showShutdownWindow(SpeedCoinGUI *window)
+void ShutdownWindow::showShutdownWindow(SaveCoinGUI *window)
 {
     if (!window)
         return;
@@ -123,7 +123,7 @@ void ShutdownWindow::showShutdownWindow(SpeedCoinGUI *window)
     QWidget *shutdownWindow = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(new QLabel(
-        tr("SpeedCoin Core is shutting down...") + "<br /><br />" +
+        tr("SaveCoin Core is shutting down...") + "<br /><br />" +
         tr("Do not shut down the computer until this window disappears.")));
     shutdownWindow->setLayout(layout);
 

@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2012 The SpeedCoin developers
+// Copyright (c) 2009-2012 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_THREADSAFETY_H
-#define SpeedCoin_THREADSAFETY_H
+#ifndef SaveCoin_THREADSAFETY_H
+#define SaveCoin_THREADSAFETY_H
 
 #ifdef __clang__
 // TL;DR Add GUARDED_BY(mutex) to member variables. The others are
@@ -51,4 +51,4 @@
 #define SHARED_LOCKS_REQUIRED(...)
 #define NO_THREAD_SAFETY_ANALYSIS
 #endif  // __GNUC__
-#endif  // SpeedCoin_THREADSAFETY_H
+#endif  // SaveCoin_THREADSAFETY_H

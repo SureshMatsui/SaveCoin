@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (c) 2011 The SpeedCoin developers
+# Copyright (c) 2011 The SaveCoin developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
@@ -22,7 +22,7 @@ MAX_NONCE = 1000000L
 settings = {}
 pp = pprint.PrettyPrinter(indent=4)
 
-class SpeedCoinRPC:
+class SaveCoinRPC:
 	OBJID = 1
 
 	def __init__(self, host, port, username, password):
@@ -183,7 +183,7 @@ class Miner:
 			self.submit_work(rpc, work['data'], nonce_bin)
 
 	def loop(self):
-		rpc = SpeedCoinRPC(settings['host'], settings['port'],
+		rpc = SaveCoinRPC(settings['host'], settings['port'],
 				 settings['rpcuser'], settings['rpcpass'])
 		if rpc is None:
 			return

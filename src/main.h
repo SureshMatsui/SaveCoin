@@ -1,13 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_MAIN_H
-#define SpeedCoin_MAIN_H
+#ifndef SaveCoin_MAIN_H
+#define SaveCoin_MAIN_H
 
 #if defined(HAVE_CONFIG_H)
-#include "SpeedCoin-config.h"
+#include "SaveCoin-config.h"
 #endif
 
 #include "bignum.h"

@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_NET_H
-#define SpeedCoin_NET_H
+#ifndef SaveCoin_NET_H
+#define SaveCoin_NET_H
 
 #include "bloom.h"
 #include "compat.h"

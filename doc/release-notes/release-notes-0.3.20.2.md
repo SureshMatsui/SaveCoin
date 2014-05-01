@@ -3,13 +3,13 @@ worse as people upgraded, so I cherry-picked the bug fix and created a minor rel
 
 The Amazon Machine Images I used to do the builds are available:
 
-  ami-38a05251   SpeedCoin-v0.3.20.2 Mingw    (Windows; Administrator password 'SpeedCoin development')
-  ami-30a05259   SpeedCoin_0.3.20.2 Linux32
-  ami-8abc4ee3   SpeedCoin_0.3.20.2 Linux64
+  ami-38a05251   SaveCoin-v0.3.20.2 Mingw    (Windows; Administrator password 'SaveCoin development')
+  ami-30a05259   SaveCoin_0.3.20.2 Linux32
+  ami-8abc4ee3   SaveCoin_0.3.20.2 Linux64
 
 (mac build will be done soon)
 
-If you have already downloaded version 0.3.20.1, please either add this to your SpeedCoin.conf file:
+If you have already downloaded version 0.3.20.1, please either add this to your SaveCoin.conf file:
 
   maxsendbuffer=10000
   maxreceivebuffer=10000

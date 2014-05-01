@@ -1,7 +1,7 @@
-Win32, Linux, MacOSX and source releases for SpeedCoin v0.3.23 have been uploaded to
-https://sourceforge.net/projects/SpeedCoin/files/SpeedCoin/SpeedCoin-0.3.23/
+Win32, Linux, MacOSX and source releases for SaveCoin v0.3.23 have been uploaded to
+https://sourceforge.net/projects/SaveCoin/files/SaveCoin/SaveCoin-0.3.23/
 
-This is another quick bugfix release, trying to deal with the influx of new SpeedCoin users.
+This is another quick bugfix release, trying to deal with the influx of new SaveCoin users.
 
 Main items of note:
 

@@ -2,9 +2,9 @@ include $(top_srcdir)/src/Makefile.include
 
 AM_CPPFLAGS += -I$(top_srcdir)/src
 
-bin_PROGRAMS = test_SpeedCoin
+bin_PROGRAMS = test_SaveCoin
 
-TESTS = test_SpeedCoin
+TESTS = test_SaveCoin
 
 JSON_TEST_FILES = \
   data/script_valid.json \
@@ -21,16 +21,16 @@ RAW_TEST_FILES = data/alertTests.raw
 
 BUILT_SOURCES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
-# test_SpeedCoin binary #
-test_SpeedCoin_CPPFLAGS = $(AM_CPPFLAGS) $(TESTDEFS)
-test_SpeedCoin_LDADD = $(LIBSpeedCoin_SERVER) $(LIBSpeedCoin_CLI) $(LIBSpeedCoin_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
+# test_SaveCoin binary #
+test_SaveCoin_CPPFLAGS = $(AM_CPPFLAGS) $(TESTDEFS)
+test_SaveCoin_LDADD = $(LIBSaveCoin_SERVER) $(LIBSaveCoin_CLI) $(LIBSaveCoin_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB)
 if ENABLE_WALLET
-test_SpeedCoin_LDADD += $(LIBSpeedCoin_WALLET)
+test_SaveCoin_LDADD += $(LIBSaveCoin_WALLET)
 endif
-test_SpeedCoin_LDADD += $(BDB_LIBS)
+test_SaveCoin_LDADD += $(BDB_LIBS)
 
-test_SpeedCoin_SOURCES = \
+test_SaveCoin_SOURCES = \
   alert_tests.cpp \
   allocator_tests.cpp \
   base32_tests.cpp \
@@ -55,7 +55,7 @@ test_SpeedCoin_SOURCES = \
   script_tests.cpp \
   serialize_tests.cpp \
   sigopcount_tests.cpp \
-  test_SpeedCoin.cpp \
+  test_SaveCoin.cpp \
   transaction_tests.cpp \
   uint256_tests.cpp \
   util_tests.cpp \
@@ -63,12 +63,12 @@ test_SpeedCoin_SOURCES = \
   $(JSON_TEST_FILES) $(RAW_TEST_FILES)
 
 if ENABLE_WALLET
-test_SpeedCoin_SOURCES += \
+test_SaveCoin_SOURCES += \
    accounting_tests.cpp \
    wallet_tests.cpp \
    rpc_wallet_tests.cpp
 endif
 
-nodist_test_SpeedCoin_SOURCES = $(BUILT_SOURCES)
+nodist_test_SaveCoin_SOURCES = $(BUILT_SOURCES)
 
 CLEANFILES = *.gcda *.gcno $(BUILT_SOURCES)

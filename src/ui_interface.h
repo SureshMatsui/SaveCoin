@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2012 The SpeedCoin developers
+// Copyright (c) 2012 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_UI_INTERFACE_H
-#define SpeedCoin_UI_INTERFACE_H
+#ifndef SaveCoin_UI_INTERFACE_H
+#define SaveCoin_UI_INTERFACE_H
 
 #include <stdint.h>
 #include <string>

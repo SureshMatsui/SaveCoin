@@ -1,22 +1,22 @@
 Multiwallet Qt Development and Integration Strategy
 ===================================================
 
-In order to support loading of multiple wallets in SpeedCoin-qt, a few changes in the UI architecture will be needed.
+In order to support loading of multiple wallets in SaveCoin-qt, a few changes in the UI architecture will be needed.
 Fortunately, only four of the files in the existing project are affected by this change.
 
 Two new classes have been implemented in two new .h/.cpp file pairs, with much of the functionality that was previously
-implemented in the SpeedCoinGUI class moved over to these new classes.
+implemented in the SaveCoinGUI class moved over to these new classes.
 
-The two existing files most affected, by far, are SpeedCoingui.h and SpeedCoingui.cpp, as the SpeedCoinGUI class will require
+The two existing files most affected, by far, are SaveCoingui.h and SaveCoingui.cpp, as the SaveCoinGUI class will require
 some major retrofitting.
 
-Only requiring some minor changes is SpeedCoin.cpp.
+Only requiring some minor changes is SaveCoin.cpp.
 
-Finally, two new headers and source files will have to be added to SpeedCoin-qt.pro.
+Finally, two new headers and source files will have to be added to SaveCoin-qt.pro.
 
-Changes to class SpeedCoinGUI
+Changes to class SaveCoinGUI
 ---------------------------
-The principal change to the SpeedCoinGUI class concerns the QStackedWidget instance called centralWidget.
+The principal change to the SaveCoinGUI class concerns the QStackedWidget instance called centralWidget.
 This widget owns five page views: overviewPage, transactionsPage, addressBookPage, receiveCoinsPage, and sendCoinsPage.
 
 A new class called *WalletView* inheriting from QStackedWidget has been written to handle all renderings and updates of
@@ -24,17 +24,17 @@ these page views. In addition to owning these five page views, a WalletView also
 This allows the construction of multiple WalletView objects, each rendering a distinct wallet.
 
 A second class called *WalletFrame* inheriting from QFrame has been written as a container for embedding all wallet-related
-controls into SpeedCoinGUI. At present it contains the WalletView instances for the wallets and does little more than passing on messages
-from SpeedCoinGUI to the currently selected WalletView. It is a WalletFrame instance
-that takes the place of what used to be centralWidget in SpeedCoinGUI. The purpose of this class is to allow future
-refinements of the wallet controls with minimal need for further modifications to SpeedCoinGUI, thus greatly simplifying
+controls into SaveCoinGUI. At present it contains the WalletView instances for the wallets and does little more than passing on messages
+from SaveCoinGUI to the currently selected WalletView. It is a WalletFrame instance
+that takes the place of what used to be centralWidget in SaveCoinGUI. The purpose of this class is to allow future
+refinements of the wallet controls with minimal need for further modifications to SaveCoinGUI, thus greatly simplifying
 merges while reducing the risk of breaking top-level stuff.
 
-Changes to SpeedCoin.cpp
+Changes to SaveCoin.cpp
 ----------------------
-SpeedCoin.cpp is the entry point into SpeedCoin-qt, and as such, will require some minor modifications to provide hooks for
+SaveCoin.cpp is the entry point into SaveCoin-qt, and as such, will require some minor modifications to provide hooks for
 multiple wallet support. Most importantly will be the way it instantiates WalletModels and passes them to the
-singleton SpeedCoinGUI instance called window. Formerly, SpeedCoinGUI kept a pointer to a single instance of a WalletModel.
+singleton SaveCoinGUI instance called window. Formerly, SaveCoinGUI kept a pointer to a single instance of a WalletModel.
 The initial change required is very simple: rather than calling `window.setWalletModel(&walletModel);` we perform the
 following two steps:
 

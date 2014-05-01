@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1263,7 +1263,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 // The following if statement should be removed once enough miners
                 // have upgraded to the 0.9 GetMinFee() rules. Until then, this avoids
                 // creating free transactions that have change outputs less than
-                // CENT SpeedCoins.
+                // CENT SaveCoins.
                 if (nFeeRet < CTransaction::nMinTxFee && nChange > 0 && nChange < CENT)
                 {
                     int64_t nMoveToFee = min(nChange, CTransaction::nMinTxFee - nFeeRet);
@@ -1275,7 +1275,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-SpeedCoin-address
+                    // change transaction isn't always pay-to-SaveCoin-address
                     CScript scriptChange;
 
                     // coin control: send change to custom address
@@ -1455,7 +1455,7 @@ string CWallet::SendMoneyToDestination(const CTxDestination& address, int64_t nV
     if (nValue + nTransactionFee > GetBalance())
         return _("Insufficient funds");
 
-    // Parse SpeedCoin address
+    // Parse SaveCoin address
     CScript scriptPubKey;
     scriptPubKey.SetDestination(address);
 
@@ -1530,9 +1530,9 @@ bool CWallet::SetAddressBook(const CTxDestination& address, const string& strNam
                              strPurpose, (fUpdated ? CT_UPDATED : CT_NEW) );
     if (!fFileBacked)
         return false;
-    if (!strPurpose.empty() && !CWalletDB(strWalletFile).WritePurpose(CSpeedCoinAddress(address).ToString(), strPurpose))
+    if (!strPurpose.empty() && !CWalletDB(strWalletFile).WritePurpose(CSaveCoinAddress(address).ToString(), strPurpose))
         return false;
-    return CWalletDB(strWalletFile).WriteName(CSpeedCoinAddress(address).ToString(), strName);
+    return CWalletDB(strWalletFile).WriteName(CSaveCoinAddress(address).ToString(), strName);
 }
 
 bool CWallet::DelAddressBook(const CTxDestination& address)
@@ -1543,7 +1543,7 @@ bool CWallet::DelAddressBook(const CTxDestination& address)
         if(fFileBacked)
         {
             // Delete destdata tuples associated with address
-            std::string strAddress = CSpeedCoinAddress(address).ToString();
+            std::string strAddress = CSaveCoinAddress(address).ToString();
             BOOST_FOREACH(const PAIRTYPE(string, string) &item, mapAddressBook[address].destdata)
             {
                 CWalletDB(strWalletFile).EraseDestData(strAddress, item.first);
@@ -1556,8 +1556,8 @@ bool CWallet::DelAddressBook(const CTxDestination& address)
 
     if (!fFileBacked)
         return false;
-    CWalletDB(strWalletFile).ErasePurpose(CSpeedCoinAddress(address).ToString());
-    return CWalletDB(strWalletFile).EraseName(CSpeedCoinAddress(address).ToString());
+    CWalletDB(strWalletFile).ErasePurpose(CSaveCoinAddress(address).ToString());
+    return CWalletDB(strWalletFile).EraseName(CSaveCoinAddress(address).ToString());
 }
 
 bool CWallet::SetDefaultKey(const CPubKey &vchPubKey)
@@ -2034,7 +2034,7 @@ bool CWallet::AddDestData(const CTxDestination &dest, const std::string &key, co
     mapAddressBook[dest].destdata.insert(std::make_pair(key, value));
     if (!fFileBacked)
         return true;
-    return CWalletDB(strWalletFile).WriteDestData(CSpeedCoinAddress(dest).ToString(), key, value);
+    return CWalletDB(strWalletFile).WriteDestData(CSaveCoinAddress(dest).ToString(), key, value);
 }
 
 bool CWallet::EraseDestData(const CTxDestination &dest, const std::string &key)
@@ -2043,7 +2043,7 @@ bool CWallet::EraseDestData(const CTxDestination &dest, const std::string &key)
         return false;
     if (!fFileBacked)
         return true;
-    return CWalletDB(strWalletFile).EraseDestData(CSpeedCoinAddress(dest).ToString(), key);
+    return CWalletDB(strWalletFile).EraseDestData(CSaveCoinAddress(dest).ToString(), key);
 }
 
 bool CWallet::LoadDestData(const CTxDestination &dest, const std::string &key, const std::string &value)

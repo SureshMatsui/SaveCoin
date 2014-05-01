@@ -1,48 +1,48 @@
-SpeedCoin 0.9.0rc1 BETA
+SaveCoin 0.9.0rc1 BETA
 =====================
 
-Copyright (c) 2009-2014 SpeedCoin Developers
+Copyright (c) 2009-2014 SaveCoin Developers
 
 
 Setup
 ---------------------
-[SpeedCoin Core](http://SpeedCoin.org/en/download) is the original SpeedCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of SpeedCoin transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once. If you would like the process to go faster you can [download the blockchain directly](https://SpeedCointalk.org/index.php?topic=145386.0).
+[SaveCoin Core](http://SaveCoin.org/en/download) is the original SaveCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of SaveCoin transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once. If you would like the process to go faster you can [download the blockchain directly](https://SaveCointalk.org/index.php?topic=145386.0).
 
 Running
 ---------------------
-The following are some helpful notes on how to run SpeedCoin on your native platform. 
+The following are some helpful notes on how to run SaveCoin on your native platform. 
 
 ### Unix
 
-You need the Qt4 run-time libraries to run SpeedCoin-Qt. On Debian or Ubuntu:
+You need the Qt4 run-time libraries to run SaveCoin-Qt. On Debian or Ubuntu:
 
 	sudo apt-get install libqtgui4
 
 Unpack the files into a directory and run:
 
-- bin/32/SpeedCoin-qt (GUI, 32-bit) or bin/32/SpeedCoind (headless, 32-bit)
-- bin/64/SpeedCoin-qt (GUI, 64-bit) or bin/64/SpeedCoind (headless, 64-bit)
+- bin/32/SaveCoin-qt (GUI, 32-bit) or bin/32/SaveCoind (headless, 32-bit)
+- bin/64/SaveCoin-qt (GUI, 64-bit) or bin/64/SaveCoind (headless, 64-bit)
 
 
 
 ### Windows
 
-Unpack the files into a directory, and then run SpeedCoin-qt.exe.
+Unpack the files into a directory, and then run SaveCoin-qt.exe.
 
 ### OSX
 
-Drag SpeedCoin-Qt to your applications folder, and then run SpeedCoin-Qt.
+Drag SaveCoin-Qt to your applications folder, and then run SaveCoin-Qt.
 
 ### Need Help?
 
-* See the documentation at the [SpeedCoin Wiki](https://en.SpeedCoin.it/wiki/Main_Page)
+* See the documentation at the [SaveCoin Wiki](https://en.SaveCoin.it/wiki/Main_Page)
 for help and more information.
-* Ask for help on [#SpeedCoin](http://webchat.freenode.net?channels=SpeedCoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=SpeedCoin).
-* Ask for help on the [SpeedCoinTalk](https://SpeedCointalk.org/) forums, in the [Technical Support board](https://SpeedCointalk.org/index.php?board=4.0).
+* Ask for help on [#SaveCoin](http://webchat.freenode.net?channels=SaveCoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=SaveCoin).
+* Ask for help on the [SaveCoinTalk](https://SaveCointalk.org/) forums, in the [Technical Support board](https://SaveCointalk.org/index.php?board=4.0).
 
 Building
 ---------------------
-The following are developer notes on how to build SpeedCoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build SaveCoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -50,19 +50,19 @@ The following are developer notes on how to build SpeedCoin on your native platf
 
 Development
 ---------------------
-The SpeedCoin repo's [root README](https://github.com/SpeedCoin/SpeedCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The SaveCoin repo's [root README](https://github.com/SaveCoin/SaveCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Coding Guidelines](coding.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/SpeedCoin/doxygen/)
+- [Source Code Documentation (External Link)](https://dev.visucore.com/SaveCoin/doxygen/)
 - [Translation Process](translation_process.md)
 - [Unit Tests](unit-tests.md)
 
 ### Resources
-* Discuss on the [SpeedCoinTalk](https://SpeedCointalk.org/) forums, in the [Development & Technical Discussion board](https://SpeedCointalk.org/index.php?board=6.0).
-* Discuss on [#SpeedCoin-dev](http://webchat.freenode.net/?channels=SpeedCoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=SpeedCoin-dev).
+* Discuss on the [SaveCoinTalk](https://SaveCointalk.org/) forums, in the [Development & Technical Discussion board](https://SaveCointalk.org/index.php?board=6.0).
+* Discuss on [#SaveCoin-dev](http://webchat.freenode.net/?channels=SaveCoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=SaveCoin-dev).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

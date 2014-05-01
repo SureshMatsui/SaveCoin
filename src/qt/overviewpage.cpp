@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2013 The SpeedCoin developers
+// Copyright (c) 2011-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "SpeedCoinunits.h"
+#include "SaveCoinunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -24,7 +24,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
    Q_OBJECT
 public:
-    TxViewDelegate(): QAbstractItemDelegate(), unit(SpeedCoinUnits::SPC)
+    TxViewDelegate(): QAbstractItemDelegate(), unit(SaveCoinUnits::SPC)
     {
 
     }
@@ -72,7 +72,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
-        QString amountText = SpeedCoinUnits::formatWithUnit(unit, amount, true);
+        QString amountText = SaveCoinUnits::formatWithUnit(unit, amount, true);
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -141,10 +141,10 @@ void OverviewPage::setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 
     currentBalance = balance;
     currentUnconfirmedBalance = unconfirmedBalance;
     currentImmatureBalance = immatureBalance;
-    ui->labelBalance->setText(SpeedCoinUnits::formatWithUnit(unit, balance));
-    ui->labelUnconfirmed->setText(SpeedCoinUnits::formatWithUnit(unit, unconfirmedBalance));
-    ui->labelImmature->setText(SpeedCoinUnits::formatWithUnit(unit, immatureBalance));
-    ui->labelTotal->setText(SpeedCoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance));
+    ui->labelBalance->setText(SaveCoinUnits::formatWithUnit(unit, balance));
+    ui->labelUnconfirmed->setText(SaveCoinUnits::formatWithUnit(unit, unconfirmedBalance));
+    ui->labelImmature->setText(SaveCoinUnits::formatWithUnit(unit, immatureBalance));
+    ui->labelTotal->setText(SaveCoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

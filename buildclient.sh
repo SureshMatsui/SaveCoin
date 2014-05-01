@@ -29,8 +29,8 @@ USE_UPNP=1 \
 
 make USE_UPNP=1 
 
-strip src/SpeedCoind.exe
-strip src/SpeedCoin-cli.exe
-strip src/qt/SpeedCoin-qt.exe
+strip src/SaveCoind.exe
+strip src/SaveCoin-cli.exe
+strip src/qt/SaveCoin-qt.exe
 
 echo "DONE! :)"

@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The SpeedCoin developers
+// Copyright (c) 2009-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef SpeedCoin_TXMEMPOOL_H
-#define SpeedCoin_TXMEMPOOL_H
+#ifndef SaveCoin_TXMEMPOOL_H
+#define SaveCoin_TXMEMPOOL_H
 
 #include <list>
 
@@ -110,4 +110,4 @@ public:
     bool HaveCoins(const uint256 &txid);
 };
 
-#endif /* SpeedCoin_TXMEMPOOL_H */
+#endif /* SaveCoin_TXMEMPOOL_H */

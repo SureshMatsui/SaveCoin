@@ -1,0 +1,6 @@
+SaveCoin-qt usr/bin
+share/pixmaps/SaveCoin32.xpm usr/share/pixmaps
+share/pixmaps/SaveCoin16.xpm usr/share/pixmaps
+share/pixmaps/SaveCoin128.png usr/share/pixmaps
+debian/SaveCoin-qt.desktop usr/share/applications
+debian/SaveCoin-qt.protocol usr/share/kde4/services/

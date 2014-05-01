@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package SpeedCoind/SpeedCoin-qt
-for Debian-based Linux systems. If you compile SpeedCoind/SpeedCoin-qt yourself, there are some useful files here.
+This directory contains files used to package SaveCoind/SaveCoin-qt
+for Debian-based Linux systems. If you compile SaveCoind/SaveCoin-qt yourself, there are some useful files here.
 
-## SpeedCoin: URI support ##
+## SaveCoin: URI support ##
 
 
-SpeedCoin-qt.desktop  (Gnome / Open Desktop)
+SaveCoin-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install SpeedCoin-qt.desktop
+	sudo desktop-file-install SaveCoin-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your SpeedCoin-qt binary to `/usr/bin`
-and the `../../share/pixmaps/SpeedCoin128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your SaveCoin-qt binary to `/usr/bin`
+and the `../../share/pixmaps/SaveCoin128.png` to `/usr/share/pixmaps`
 
-SpeedCoin-qt.protocol (KDE)
+SaveCoin-qt.protocol (KDE)
 

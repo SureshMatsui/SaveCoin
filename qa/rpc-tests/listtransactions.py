@@ -2,10 +2,10 @@
 
 # Exercise the listtransactions API
 
-# Add python-SpeedCoinrpc to module search path:
+# Add python-SaveCoinrpc to module search path:
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-SpeedCoinrpc"))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-SaveCoinrpc"))
 
 import json
 import shutil
@@ -13,7 +13,7 @@ import subprocess
 import tempfile
 import traceback
 
-from SpeedCoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from SaveCoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 
@@ -103,9 +103,9 @@ def main():
 
     parser = optparse.OptionParser(usage="%prog [options]")
     parser.add_option("--nocleanup", dest="nocleanup", default=False, action="store_true",
-                      help="Leave SpeedCoinds and test.* datadir on exit or error")
+                      help="Leave SaveCoinds and test.* datadir on exit or error")
     parser.add_option("--srcdir", dest="srcdir", default="../../src",
-                      help="Source directory containing SpeedCoind/SpeedCoin-cli (default: %default%)")
+                      help="Source directory containing SaveCoind/SaveCoin-cli (default: %default%)")
     parser.add_option("--tmpdir", dest="tmpdir", default=tempfile.mkdtemp(prefix="test"),
                       help="Root directory for datadirs")
     (options, args) = parser.parse_args()

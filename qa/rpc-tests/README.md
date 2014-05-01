@@ -1,8 +1,8 @@
 Regression tests of RPC interface
 =================================
 
-python-SpeedCoinrpc: git subtree of https://github.com/jgarzik/python-SpeedCoinrpc
-Changes to python-SpeedCoinrpc should be made upstream, and then
+python-SaveCoinrpc: git subtree of https://github.com/jgarzik/python-SaveCoinrpc
+Changes to python-SaveCoinrpc should be made upstream, and then
 pulled here using git subtree
 
 skeleton.py : Copy this to create new regression tests.
@@ -33,4 +33,4 @@ test state.
 If you get into a bad state, you should be able
 to recover with:
   rm -rf cache
-  killall SpeedCoind
+  killall SaveCoind

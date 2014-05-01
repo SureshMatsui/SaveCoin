@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The SpeedCoin developers
+// Copyright (c) 2011-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -30,10 +30,10 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
 #endif
 
-    // normal SpeedCoin address field
+    // normal SaveCoin address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying SpeedCoin address(es)
-    ui->payTo_is->setFont(GUIUtil::SpeedCoinAddressFont());
+    // just a label for displaying SaveCoin address(es)
+    ui->payTo_is->setFont(GUIUtil::SaveCoinAddressFont());
 }
 
 SendCoinsEntry::~SendCoinsEntry()

@@ -1,9 +1,9 @@
-// Copyright (c) 2012 The SpeedCoin developers
+// Copyright (c) 2012 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_BLOOM_H
-#define SpeedCoin_BLOOM_H
+#ifndef SaveCoin_BLOOM_H
+#define SaveCoin_BLOOM_H
 
 #include "serialize.h"
 
@@ -89,4 +89,4 @@ public:
     void UpdateEmptyFull();
 };
 
-#endif /* SpeedCoin_BLOOM_H */
+#endif /* SaveCoin_BLOOM_H */

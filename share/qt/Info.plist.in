@@ -11,13 +11,13 @@
   </array>
 
   <key>CFBundleIconFile</key>
-  <string>SpeedCoin.icns</string>
+  <string>SaveCoin.icns</string>
 
   <key>CFBundlePackageType</key>
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@, Copyright © 2009-@COPYRIGHT_YEAR@ The SpeedCoin Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@, Copyright © 2009-@COPYRIGHT_YEAR@ The SaveCoin Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@</string>
@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>SpeedCoin-Qt</string>
+  <string>SaveCoin-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>org.SpeedCoinfoundation.SpeedCoin-Qt</string>
+  <string>org.SaveCoinfoundation.SaveCoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,10 +40,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.SpeedCoin.SpeedCoinPayment</string>
+      <string>org.SaveCoin.SaveCoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>SpeedCoin</string>
+        <string>SaveCoin</string>
       </array>
     </dict>
   </array>
@@ -52,9 +52,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.SpeedCoin.paymentrequest</string>
+      <string>org.SaveCoin.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>SpeedCoin payment request</string>
+      <string>SaveCoin payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -62,10 +62,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-SpeedCoin-payment-request</string>
+        <string>application/x-SaveCoin-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>SpeedCoinpaymentrequest</string>
+          <string>SaveCoinpaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -78,7 +78,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.SpeedCoin.paymentrequest</string>
+        <string>org.SaveCoin.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

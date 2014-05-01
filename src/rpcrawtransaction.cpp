@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -47,7 +47,7 @@ void ScriptPubKeyToJSON(const CScript& scriptPubKey, Object& out, bool fIncludeH
 
     Array a;
     BOOST_FOREACH(const CTxDestination& addr, addresses)
-        a.push_back(CSpeedCoinAddress(addr).ToString());
+        a.push_back(CSaveCoinAddress(addr).ToString());
     out.push_back(Pair("addresses", a));
 }
 
@@ -117,9 +117,9 @@ Value searchrawtransactions(const Array &params, bool fHelp)
     if (!fAddrIndex)
         throw JSONRPCError(RPC_MISC_ERROR, "Address index not enabled");
 
-    CSpeedCoinAddress address(params[0].get_str());
+    CSaveCoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid SpeedCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid SaveCoin address");
     CTxDestination dest = address.Get();
 
     std::set<CExtDiskTxPos> setpos;
@@ -212,7 +212,7 @@ Value getrawtransaction(const Array& params, bool fHelp)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"SpeedCoinaddress\"        (string) SpeedCoin address\n"
+            "           \"SaveCoinaddress\"        (string) SaveCoin address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -269,9 +269,9 @@ Value listunspent(const Array& params, bool fHelp)
             "\nArguments:\n"
             "1. minconf          (numeric, optional, default=1) The minimum confirmationsi to filter\n"
             "2. maxconf          (numeric, optional, default=9999999) The maximum confirmations to filter\n"
-            "3. \"addresses\"    (string) A json array of SpeedCoin addresses to filter\n"
+            "3. \"addresses\"    (string) A json array of SaveCoin addresses to filter\n"
             "    [\n"
-            "      \"address\"   (string) SpeedCoin address\n"
+            "      \"address\"   (string) SaveCoin address\n"
             "      ,...\n"
             "    ]\n"
             "\nResult\n"
@@ -279,7 +279,7 @@ Value listunspent(const Array& params, bool fHelp)
             "  {\n"
             "    \"txid\" : \"txid\",        (string) the transaction id \n"
             "    \"vout\" : n,               (numeric) the vout value\n"
-            "    \"address\" : \"address\",  (string) the SpeedCoin address\n"
+            "    \"address\" : \"address\",  (string) the SaveCoin address\n"
             "    \"account\" : \"account\",  (string) The associated account, or \"\" for the default account\n"
             "    \"scriptPubKey\" : \"key\", (string) the script key\n"
             "    \"amount\" : x.xxx,         (numeric) the transaction amount in SPC\n"
@@ -304,15 +304,15 @@ Value listunspent(const Array& params, bool fHelp)
     if (params.size() > 1)
         nMaxDepth = params[1].get_int();
 
-    set<CSpeedCoinAddress> setAddress;
+    set<CSaveCoinAddress> setAddress;
     if (params.size() > 2)
     {
         Array inputs = params[2].get_array();
         BOOST_FOREACH(Value& input, inputs)
         {
-            CSpeedCoinAddress address(input.get_str());
+            CSaveCoinAddress address(input.get_str());
             if (!address.IsValid())
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid SpeedCoin address: ")+input.get_str());
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid SaveCoin address: ")+input.get_str());
             if (setAddress.count(address))
                 throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+input.get_str());
            setAddress.insert(address);
@@ -346,7 +346,7 @@ Value listunspent(const Array& params, bool fHelp)
         CTxDestination address;
         if (ExtractDestination(out.tx->vout[out.i].scriptPubKey, address))
         {
-            entry.push_back(Pair("address", CSpeedCoinAddress(address).ToString()));
+            entry.push_back(Pair("address", CSaveCoinAddress(address).ToString()));
             if (pwalletMain->mapAddressBook.count(address))
                 entry.push_back(Pair("account", pwalletMain->mapAddressBook[address].name));
         }
@@ -392,7 +392,7 @@ Value createrawtransaction(const Array& params, bool fHelp)
             "     ]\n"
             "2. \"addresses\"           (string, required) a json object with addresses as keys and amounts as values\n"
             "    {\n"
-            "      \"address\": x.xxx   (numeric, required) The key is the SpeedCoin address, the value is the SPC amount\n"
+            "      \"address\": x.xxx   (numeric, required) The key is the SaveCoin address, the value is the SPC amount\n"
             "      ,...\n"
             "    }\n"
 
@@ -428,12 +428,12 @@ Value createrawtransaction(const Array& params, bool fHelp)
         rawTx.vin.push_back(in);
     }
 
-    set<CSpeedCoinAddress> setAddress;
+    set<CSaveCoinAddress> setAddress;
     BOOST_FOREACH(const Pair& s, sendTo)
     {
-        CSpeedCoinAddress address(s.name_);
+        CSaveCoinAddress address(s.name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid SpeedCoin address: ")+s.name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid SaveCoin address: ")+s.name_);
 
         if (setAddress.count(address))
             throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+s.name_);
@@ -490,7 +490,7 @@ Value decoderawtransaction(const Array& params, bool fHelp)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc\"   (string) SpeedCoin address\n"
+            "           \"12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc\"   (string) SaveCoin address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -539,7 +539,7 @@ Value decodescript(const Array& params, bool fHelp)
             "  \"type\":\"type\", (string) The output type\n"
             "  \"reqSigs\": n,    (numeric) The required signatures\n"
             "  \"addresses\": [   (json array of string)\n"
-            "     \"address\"     (string) SpeedCoin address\n"
+            "     \"address\"     (string) SaveCoin address\n"
             "     ,...\n"
             "  ],\n"
             "  \"p2sh\",\"address\" (string) script address\n"
@@ -561,7 +561,7 @@ Value decodescript(const Array& params, bool fHelp)
     }
     ScriptPubKeyToJSON(script, r, false);
 
-    r.push_back(Pair("p2sh", CSpeedCoinAddress(script.GetID()).ToString()));
+    r.push_back(Pair("p2sh", CSaveCoinAddress(script.GetID()).ToString()));
     return r;
 }
 
@@ -666,7 +666,7 @@ Value signrawtransaction(const Array& params, bool fHelp)
         Array keys = params[2].get_array();
         BOOST_FOREACH(Value k, keys)
         {
-            CSpeedCoinSecret vchSecret;
+            CSaveCoinSecret vchSecret;
             bool fGood = vchSecret.SetString(k.get_str());
             if (!fGood)
                 throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid private key");

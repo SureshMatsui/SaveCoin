@@ -2,14 +2,14 @@
 
 from distutils.core import setup
 
-setup(name='python-SpeedCoinrpc',
+setup(name='python-SaveCoinrpc',
       version='0.1',
-      description='Enhanced version of python-jsonrpc for use with SpeedCoin',
+      description='Enhanced version of python-jsonrpc for use with SaveCoin',
       long_description=open('README').read(),
       author='Jeff Garzik',
       author_email='<jgarzik@exmulti.com>',
       maintainer='Jeff Garzik',
       maintainer_email='<jgarzik@exmulti.com>',
-      url='http://www.github.com/jgarzik/python-SpeedCoinrpc',
-      packages=['SpeedCoinrpc'],
+      url='http://www.github.com/jgarzik/python-SaveCoinrpc',
+      packages=['SaveCoinrpc'],
       classifiers=['License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)', 'Operating System :: OS Independent'])

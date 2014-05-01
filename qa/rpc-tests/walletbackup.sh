@@ -36,8 +36,8 @@ if [ $# -lt 1 ]; then
         exit 1
 fi
 
-SpeedCoinD=${1}/SpeedCoind
-CLI=${1}/SpeedCoin-cli
+SaveCoinD=${1}/SaveCoind
+CLI=${1}/SaveCoin-cli
 
 DIR="${BASH_SOURCE%/*}"
 SENDANDWAIT="${DIR}/send.sh"
@@ -52,7 +52,7 @@ echo "Starting nodes..."
 D4=${D}/node4
 CreateDataDir $D4 port=11030 rpcport=11031
 B4ARGS="-datadir=$D4"
-$SpeedCoinD $SpeedCoinDARGS $B4ARGS &
+$SaveCoinD $SaveCoinDARGS $B4ARGS &
 B4PID=$!
 
 # Want default keypool for 1/2/3, and
@@ -61,7 +61,7 @@ B4PID=$!
 function CreateConfDir {
   DIR=$1
   mkdir -p $DIR
-  CONF=$DIR/SpeedCoin.conf
+  CONF=$DIR/SaveCoin.conf
   echo "regtest=1" >> $CONF
   echo "rpcuser=rt" >> $CONF
   echo "rpcpassword=rt" >> $CONF
@@ -77,17 +77,17 @@ function CreateConfDir {
 D1=${D}/node1
 CreateConfDir $D1 port=11000 rpcport=11001 addnode=127.0.0.1:11030
 B1ARGS="-datadir=$D1"
-$SpeedCoinD $B1ARGS &
+$SaveCoinD $B1ARGS &
 B1PID=$!
 D2=${D}/node2
 CreateConfDir $D2 port=11010 rpcport=11011 addnode=127.0.0.1:11030
 B2ARGS="-datadir=$D2"
-$SpeedCoinD $B2ARGS &
+$SaveCoinD $B2ARGS &
 B2PID=$!
 D3=${D}/node3
 CreateConfDir $D3 port=11020 rpcport=11021 addnode=127.0.0.1:11030 addnode=127.0.0.1:11000
 B3ARGS="-datadir=$D3"
-$SpeedCoinD $SpeedCoinDARGS $B3ARGS &
+$SaveCoinD $SaveCoinDARGS $B3ARGS &
 B3PID=$!
 
 # Wait until all nodes are at the same block number
@@ -228,11 +228,11 @@ function EraseThree {
   rm $D3/regtest/wallet.dat
 }
 function StartThree {
-  $SpeedCoinD $SpeedCoinDARGS $B1ARGS &
+  $SaveCoinD $SaveCoinDARGS $B1ARGS &
   B1PID=$!
-  $SpeedCoinD $SpeedCoinDARGS $B2ARGS &
+  $SaveCoinD $SaveCoinDARGS $B2ARGS &
   B2PID=$!
-  $SpeedCoinD $SpeedCoinDARGS $B3ARGS &
+  $SaveCoinD $SaveCoinDARGS $B3ARGS &
   B3PID=$!
 }
 

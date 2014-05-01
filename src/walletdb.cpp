@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -337,13 +337,13 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
         {
             string strAddress;
             ssKey >> strAddress;
-            ssValue >> pwallet->mapAddressBook[CSpeedCoinAddress(strAddress).Get()].name;
+            ssValue >> pwallet->mapAddressBook[CSaveCoinAddress(strAddress).Get()].name;
         }
         else if (strType == "purpose")
         {
             string strAddress;
             ssKey >> strAddress;
-            ssValue >> pwallet->mapAddressBook[CSpeedCoinAddress(strAddress).Get()].purpose;
+            ssValue >> pwallet->mapAddressBook[CSaveCoinAddress(strAddress).Get()].purpose;
         }
         else if (strType == "tx")
         {
@@ -562,7 +562,7 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
             ssKey >> strAddress;
             ssKey >> strKey;
             ssValue >> strValue;
-            if (!pwallet->LoadDestData(CSpeedCoinAddress(strAddress).Get(), strKey, strValue))
+            if (!pwallet->LoadDestData(CSaveCoinAddress(strAddress).Get(), strKey, strValue))
             {
                 strErr = "Error reading wallet database: LoadDestData failed";
                 return false;
@@ -765,7 +765,7 @@ DBErrors CWalletDB::ZapWalletTx(CWallet* pwallet)
 void ThreadFlushWalletDB(const string& strFile)
 {
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("SpeedCoin-wallet");
+    RenameThread("SaveCoin-wallet");
 
     static bool fOneThread;
     if (fOneThread)

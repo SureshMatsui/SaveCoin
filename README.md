@@ -1,28 +1,28 @@
-SpeedCoin Core integration/staging tree
+SaveCoin Core integration/staging tree
 =====================================
 
-http://www.SpeedCoin.net
+http://www.SaveCoin.co
 http://www.bitcoin.org
 
-Copyright (c) 2009-2014 SpeedCoin Core Developers
+Copyright (c) 2009-2014 SaveCoin Core Developers
 Copyright (c) 2009-2014 Bitcoin Core Developers
 
-What is SpeedCoin?
+What is SaveCoin?
 ----------------
 
-SpeedCoin is an experimental new digital currency that enables instant payments to
-anyone, anywhere in the world. SpeedCoin uses peer-to-peer technology to operate
+SaveCoin is an experimental new digital currency that enables instant payments to
+anyone, anywhere in the world. SaveCoin uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
-out collectively by the network. SpeedCoin receives interest payments on addresses with a balance.
-SpeedCoin Core is the name of open source software which enables the use of this currency. SpeedCoin is based on the Bitcoin project.
+out collectively by the network. SaveCoin receives interest payments on addresses with a balance.
+SaveCoin Core is the name of open source software which enables the use of this currency. SaveCoin is based on the Bitcoin project.
 
 For more information, as well as an immediately useable, binary version of
-the SpeedCoin Core software, see http://www.SpeedCoin.net/.
+the SaveCoin Core software, see http://www.SaveCoin.co/.
 
 License
 -------
 
-SpeedCoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+SaveCoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see http://opensource.org/licenses/MIT.
 
 Development process
@@ -31,7 +31,7 @@ Development process
 Developers work in their own trees, then submit pull requests when they think
 their feature or bug fix is ready.
 
-If it is a simple/trivial/non-controversial change, then one of the SpeedCoin
+If it is a simple/trivial/non-controversial change, then one of the SaveCoin
 development team members simply pulls it.
 
 If it is a *more complicated or potentially controversial* change, then the patch

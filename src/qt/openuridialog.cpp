@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The SpeedCoin developers
+// Copyright (c) 2011-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +16,7 @@ OpenURIDialog::OpenURIDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 #if QT_VERSION >= 0x040700
-    ui->uriEdit->setPlaceholderText("SpeedCoin:");
+    ui->uriEdit->setPlaceholderText("SaveCoin:");
 #endif
 }
 
@@ -33,7 +33,7 @@ QString OpenURIDialog::getURI()
 void OpenURIDialog::accept()
 {
     SendCoinsRecipient rcp;
-    if(GUIUtil::parseSpeedCoinURI(getURI(), &rcp))
+    if(GUIUtil::parseSaveCoinURI(getURI(), &rcp))
     {
         /* Only accept value URIs */
         QDialog::accept();
@@ -48,5 +48,5 @@ void OpenURIDialog::on_selectFileButton_clicked()
     if(filename.isEmpty())
         return;
     QUrl fileUri = QUrl::fromLocalFile(filename);
-    ui->uriEdit->setText("SpeedCoin:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
+    ui->uriEdit->setText("SaveCoin:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
 }

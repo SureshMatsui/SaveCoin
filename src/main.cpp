@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +27,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "SpeedCoin cannot be compiled without assertions."
+# error "SaveCoin cannot be compiled without assertions."
 #endif
 
 //
@@ -72,7 +72,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "SpeedCoin Signed Message:\n";
+const string strMessageMagic = "SaveCoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1663,7 +1663,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("SpeedCoin-scriptch");
+    RenameThread("SaveCoin-scriptch");
     scriptcheckqueue.Thread();
 }
 

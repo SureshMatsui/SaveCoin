@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2014 The SpeedCoin developers
+// Copyright (c) 2011-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "transactiontablemodel.h"
 
 #include "addresstablemodel.h"
-#include "SpeedCoinunits.h"
+#include "SaveCoinunits.h"
 #include "guiconstants.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -431,7 +431,7 @@ QVariant TransactionTableModel::addressColor(const TransactionRecord *wtx) const
 
 QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed) const
 {
-    QString str = SpeedCoinUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit);
+    QString str = SaveCoinUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit);
     if(showUnconfirmed)
     {
         if(!wtx->status.countsForBalance)

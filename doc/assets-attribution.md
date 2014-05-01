@@ -1,4 +1,4 @@
-The following is a list of assets used in the SpeedCoin source and their proper attribution.
+The following is a list of assets used in the SaveCoin source and their proper attribution.
 
 [Wladimir van der Laan](https://github.com/laanwj)
 -----------------------
@@ -47,7 +47,7 @@ md2k7
 * Designer: md2k7
 * License: You are free to do with these icons as you wish, including selling, copying, modifying etc.
 * License: MIT
-* Site: [https://SpeedCointalk.org/index.php?topic=15276.0](https://SpeedCointalk.org/index.php?topic=15276.0)
+* Site: [https://SaveCointalk.org/index.php?topic=15276.0](https://SaveCointalk.org/index.php?topic=15276.0)
 
 ### Assets Used
 	src/qt/res/icons/transaction*.png
@@ -93,12 +93,12 @@ Jonas Schnelli
 -----------------------
 
 ### Info
-* Designer: Jonas Schnelli (based on the original SpeedCoin logo from Bitboy)
+* Designer: Jonas Schnelli (based on the original SaveCoin logo from Bitboy)
 * License: MIT
 
 ### Assets Used
-	src/qt/res/icons/SpeedCoin.icns, src/qt/res/src/SpeedCoin.svg,
-	src/qt/res/src/SpeedCoin.ico, src/qt/res/src/SpeedCoin.png,
-	src/qt/res/src/SpeedCoin_testnet.png, docs/SpeedCoin_logo_doxygen.png,
+	src/qt/res/icons/SaveCoin.icns, src/qt/res/src/SaveCoin.svg,
+	src/qt/res/src/SaveCoin.ico, src/qt/res/src/SaveCoin.png,
+	src/qt/res/src/SaveCoin_testnet.png, docs/SaveCoin_logo_doxygen.png,
 	src/qt/res/icons/toolbar.png, src/qt/res/icons/toolbar_testnet.png,
 	src/qt/res/images/splash.png, src/qt/res/images/splash_testnet.png

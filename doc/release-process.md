@@ -2,14 +2,14 @@ Release Process
 ====================
 
 * update translations (ping wumpus, Diapolo or tcatm on IRC)
-* see https://github.com/SpeedCoin/SpeedCoin/blob/master/doc/translation_process.md#syncing-with-transifex
+* see https://github.com/SaveCoin/SaveCoin/blob/master/doc/translation_process.md#syncing-with-transifex
 
 * * *
 
 ###update (commit) version in sources
 
 
-	SpeedCoin-qt.pro
+	SaveCoin-qt.pro
 	contrib/verifysfbinaries/verify.sh
 	doc/README*
 	share/setup.nsi
@@ -27,11 +27,11 @@ Release Process
 
 ##perform gitian builds
 
- From a directory containing the SpeedCoin source, gitian-builder and gitian.sigs
+ From a directory containing the SaveCoin source, gitian-builder and gitian.sigs
   
 	export SIGNER=(your gitian key, ie bluematt, sipa, etc)
 	export VERSION=(new version, e.g. 0.8.0)
-	pushd ./SpeedCoin
+	pushd ./SaveCoin
 	git checkout v${VERSION}
 	popd
 	pushd ./gitian-builder
@@ -51,55 +51,55 @@ Release Process
 	wget 'https://download.qt-project.org/official_releases/qt/5.2/5.2.0/single/qt-everywhere-opensource-src-5.2.0.tar.gz'
 	wget 'https://protobuf.googlecode.com/files/protobuf-2.5.0.tar.bz2'
 	cd ..
-	./bin/gbuild ../SpeedCoin/contrib/gitian-descriptors/boost-linux.yml
+	./bin/gbuild ../SaveCoin/contrib/gitian-descriptors/boost-linux.yml
 	mv build/out/boost-*.zip inputs/
-	./bin/gbuild ../SpeedCoin/contrib/gitian-descriptors/deps-linux.yml
-	mv build/out/SpeedCoin-deps-*.zip inputs/
-	./bin/gbuild ../SpeedCoin/contrib/gitian-descriptors/boost-win.yml
+	./bin/gbuild ../SaveCoin/contrib/gitian-descriptors/deps-linux.yml
+	mv build/out/SaveCoin-deps-*.zip inputs/
+	./bin/gbuild ../SaveCoin/contrib/gitian-descriptors/boost-win.yml
 	mv build/out/boost-*.zip inputs/
-	./bin/gbuild ../SpeedCoin/contrib/gitian-descriptors/deps-win.yml
-	mv build/out/SpeedCoin-deps-*.zip inputs/
-	./bin/gbuild ../SpeedCoin/contrib/gitian-descriptors/qt-win.yml
+	./bin/gbuild ../SaveCoin/contrib/gitian-descriptors/deps-win.yml
+	mv build/out/SaveCoin-deps-*.zip inputs/
+	./bin/gbuild ../SaveCoin/contrib/gitian-descriptors/qt-win.yml
 	mv build/out/qt-*.zip inputs/
-	./bin/gbuild ../SpeedCoin/contrib/gitian-descriptors/protobuf-win.yml
+	./bin/gbuild ../SaveCoin/contrib/gitian-descriptors/protobuf-win.yml
 	mv build/out/protobuf-*.zip inputs/
 
- Build SpeedCoind and SpeedCoin-qt on Linux32, Linux64, and Win32:
+ Build SaveCoind and SaveCoin-qt on Linux32, Linux64, and Win32:
   
-	./bin/gbuild --commit SpeedCoin=v${VERSION} ../SpeedCoin/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION} --destination ../gitian.sigs/ ../SpeedCoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gbuild --commit SaveCoin=v${VERSION} ../SaveCoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION} --destination ../gitian.sigs/ ../SaveCoin/contrib/gitian-descriptors/gitian-linux.yml
 	pushd build/out
-	zip -r SpeedCoin-${VERSION}-linux-gitian.zip *
-	mv SpeedCoin-${VERSION}-linux-gitian.zip ../../../
+	zip -r SaveCoin-${VERSION}-linux-gitian.zip *
+	mv SaveCoin-${VERSION}-linux-gitian.zip ../../../
 	popd
-	./bin/gbuild --commit SpeedCoin=v${VERSION} ../SpeedCoin/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs/ ../SpeedCoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gbuild --commit SaveCoin=v${VERSION} ../SaveCoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs/ ../SaveCoin/contrib/gitian-descriptors/gitian-win.yml
 	pushd build/out
-	zip -r SpeedCoin-${VERSION}-win-gitian.zip *
-	mv SpeedCoin-${VERSION}-win-gitian.zip ../../../
+	zip -r SaveCoin-${VERSION}-win-gitian.zip *
+	mv SaveCoin-${VERSION}-win-gitian.zip ../../../
 	popd
 	popd
 
   Build output expected:
 
-  1. linux 32-bit and 64-bit binaries + source (SpeedCoin-${VERSION}-linux-gitian.zip)
-  2. windows 32-bit and 64-bit binaries + installer + source (SpeedCoin-${VERSION}-win-gitian.zip)
+  1. linux 32-bit and 64-bit binaries + source (SaveCoin-${VERSION}-linux-gitian.zip)
+  2. windows 32-bit and 64-bit binaries + installer + source (SaveCoin-${VERSION}-win-gitian.zip)
   3. Gitian signatures (in gitian.sigs/${VERSION}[-win]/(your gitian key)/
 
 repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 **Linux .tar.gz:**
 
-	unzip SpeedCoin-${VERSION}-linux-gitian.zip -d SpeedCoin-${VERSION}-linux
-	tar czvf SpeedCoin-${VERSION}-linux.tar.gz SpeedCoin-${VERSION}-linux
-	rm -rf SpeedCoin-${VERSION}-linux
+	unzip SaveCoin-${VERSION}-linux-gitian.zip -d SaveCoin-${VERSION}-linux
+	tar czvf SaveCoin-${VERSION}-linux.tar.gz SaveCoin-${VERSION}-linux
+	rm -rf SaveCoin-${VERSION}-linux
 
 **Windows .zip and setup.exe:**
 
-	unzip SpeedCoin-${VERSION}-win-gitian.zip -d SpeedCoin-${VERSION}-win
-	mv SpeedCoin-${VERSION}-win/SpeedCoin-*-setup.exe .
-	zip -r SpeedCoin-${VERSION}-win.zip SpeedCoin-${VERSION}-win
-	rm -rf SpeedCoin-${VERSION}-win
+	unzip SaveCoin-${VERSION}-win-gitian.zip -d SaveCoin-${VERSION}-win
+	mv SaveCoin-${VERSION}-win/SaveCoin-*-setup.exe .
+	zip -r SaveCoin-${VERSION}-win.zip SaveCoin-${VERSION}-win
+	rm -rf SaveCoin-${VERSION}-win
 
 **Perform Mac build:**
 
@@ -111,10 +111,10 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 	make
 	export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
 	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
-        export CODESIGNARGS='--keychain ...path_to_keychain --sign "Developer ID Application: SpeedCoin FOUNDATION, INC., THE"'
-	python2.7 contrib/macdeploy/macdeployqtplus SpeedCoin-Qt.app -sign -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+        export CODESIGNARGS='--keychain ...path_to_keychain --sign "Developer ID Application: SaveCoin FOUNDATION, INC., THE"'
+	python2.7 contrib/macdeploy/macdeployqtplus SaveCoin-Qt.app -sign -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
- Build output expected: SpeedCoin-Qt.dmg
+ Build output expected: SaveCoin-Qt.dmg
 
 ###Next steps:
 
@@ -125,16 +125,16 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 * create SHA256SUMS for builds, and PGP-sign it
 
-* update SpeedCoin.org version
+* update SaveCoin.org version
   make sure all OS download links go to the right versions
   
-* update download sizes on SpeedCoin.org/_templates/download.html
+* update download sizes on SaveCoin.org/_templates/download.html
 
 * update forum version
 
 * update wiki download links
 
-* update wiki changelog: [https://en.SpeedCoin.it/wiki/Changelog](https://en.SpeedCoin.it/wiki/Changelog)
+* update wiki changelog: [https://en.SaveCoin.it/wiki/Changelog](https://en.SaveCoin.it/wiki/Changelog)
 
 Commit your signature to gitian.sigs:
 
@@ -149,44 +149,44 @@ Commit your signature to gitian.sigs:
 
 ### After 3 or more people have gitian-built, repackage gitian-signed zips:
 
-From a directory containing SpeedCoin source, gitian.sigs and gitian zips
+From a directory containing SaveCoin source, gitian.sigs and gitian zips
 
 	export VERSION=(new version, e.g. 0.8.0)
-	mkdir SpeedCoin-${VERSION}-linux-gitian
-	pushd SpeedCoin-${VERSION}-linux-gitian
-	unzip ../SpeedCoin-${VERSION}-linux-gitian.zip
+	mkdir SaveCoin-${VERSION}-linux-gitian
+	pushd SaveCoin-${VERSION}-linux-gitian
+	unzip ../SaveCoin-${VERSION}-linux-gitian.zip
 	mkdir gitian
-	cp ../SpeedCoin/contrib/gitian-downloader/*.pgp ./gitian/
+	cp ../SaveCoin/contrib/gitian-downloader/*.pgp ./gitian/
 	for signer in $(ls ../gitian.sigs/${VERSION}/); do
-	 cp ../gitian.sigs/${VERSION}/${signer}/SpeedCoin-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}/${signer}/SpeedCoin-build.assert.sig ./gitian/${signer}-build.assert.sig
+	 cp ../gitian.sigs/${VERSION}/${signer}/SaveCoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}/${signer}/SaveCoin-build.assert.sig ./gitian/${signer}-build.assert.sig
 	done
-	zip -r SpeedCoin-${VERSION}-linux-gitian.zip *
-	cp SpeedCoin-${VERSION}-linux-gitian.zip ../
+	zip -r SaveCoin-${VERSION}-linux-gitian.zip *
+	cp SaveCoin-${VERSION}-linux-gitian.zip ../
 	popd
-	mkdir SpeedCoin-${VERSION}-win-gitian
-	pushd SpeedCoin-${VERSION}-win-gitian
-	unzip ../SpeedCoin-${VERSION}-win-gitian.zip
+	mkdir SaveCoin-${VERSION}-win-gitian
+	pushd SaveCoin-${VERSION}-win-gitian
+	unzip ../SaveCoin-${VERSION}-win-gitian.zip
 	mkdir gitian
-	cp ../SpeedCoin/contrib/gitian-downloader/*.pgp ./gitian/
+	cp ../SaveCoin/contrib/gitian-downloader/*.pgp ./gitian/
 	for signer in $(ls ../gitian.sigs/${VERSION}-win/); do
-	 cp ../gitian.sigs/${VERSION}-win/${signer}/SpeedCoin-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}-win/${signer}/SpeedCoin-build.assert.sig ./gitian/${signer}-build.assert.sig
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/SaveCoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/SaveCoin-build.assert.sig ./gitian/${signer}-build.assert.sig
 	done
-	zip -r SpeedCoin-${VERSION}-win-gitian.zip *
-	cp SpeedCoin-${VERSION}-win-gitian.zip ../
+	zip -r SaveCoin-${VERSION}-win-gitian.zip *
+	cp SaveCoin-${VERSION}-win-gitian.zip ../
 	popd
 
 - Upload gitian zips to SourceForge
 
 - Announce the release:
 
-  - Add the release to SpeedCoin.org: https://github.com/SpeedCoin/SpeedCoin.org/tree/master/_releases
+  - Add the release to SaveCoin.org: https://github.com/SaveCoin/SaveCoin.org/tree/master/_releases
 
-  - Release sticky on SpeedCointalk: https://SpeedCointalk.org/index.php?board=1.0
+  - Release sticky on SaveCointalk: https://SaveCointalk.org/index.php?board=1.0
 
-  - SpeedCoin-development mailing list
+  - SaveCoin-development mailing list
 
-  - Optionally reddit /r/SpeedCoin, ...
+  - Optionally reddit /r/SaveCoin, ...
 
 - Celebrate 

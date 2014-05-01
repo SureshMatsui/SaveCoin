@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The SpeedCoin developers
+// Copyright (c) 2009-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_TXDB_LEVELDB_H
-#define SpeedCoin_TXDB_LEVELDB_H
+#ifndef SaveCoin_TXDB_LEVELDB_H
+#define SaveCoin_TXDB_LEVELDB_H
 
 #include "leveldbwrapper.h"
 #include "main.h"
@@ -69,4 +69,4 @@ public:
     bool LoadBlockIndexGuts();
 };
 
-#endif // SpeedCoin_TXDB_LEVELDB_H
+#endif // SaveCoin_TXDB_LEVELDB_H

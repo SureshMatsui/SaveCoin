@@ -3,28 +3,28 @@ include Makefile.include
 AM_CPPFLAGS += -I$(builddir)
 
 noinst_LIBRARIES = \
-  libSpeedCoin_server.a \
-  libSpeedCoin_common.a \
-  libSpeedCoin_cli.a
+  libSaveCoin_server.a \
+  libSaveCoin_common.a \
+  libSaveCoin_cli.a
 if ENABLE_WALLET
-noinst_LIBRARIES += libSpeedCoin_wallet.a
+noinst_LIBRARIES += libSaveCoin_wallet.a
 endif
 
 bin_PROGRAMS =
 
-if BUILD_SpeedCoinD
-  bin_PROGRAMS += SpeedCoind
+if BUILD_SaveCoinD
+  bin_PROGRAMS += SaveCoind
 endif
 
-if BUILD_SpeedCoin_CLI
-  bin_PROGRAMS += SpeedCoin-cli
+if BUILD_SaveCoin_CLI
+  bin_PROGRAMS += SaveCoin-cli
 endif
 
 SUBDIRS = . $(BUILD_QT) $(BUILD_TEST)
 DIST_SUBDIRS = . qt test
 .PHONY: FORCE
-# SpeedCoin core #
-SpeedCoin_CORE_H = \
+# SaveCoin core #
+SaveCoin_CORE_H = \
   addrman.h \
   alert.h \
   allocators.h \
@@ -87,7 +87,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 version.o: obj/build.h
 
-libSpeedCoin_server_a_SOURCES = \
+libSaveCoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
   rpcserver.cpp \
@@ -110,18 +110,18 @@ libSpeedCoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   $(JSON_H) \
-  $(SpeedCoin_CORE_H)
+  $(SaveCoin_CORE_H)
 
-libSpeedCoin_wallet_a_SOURCES = \
+libSaveCoin_wallet_a_SOURCES = \
   db.cpp \
   crypter.cpp \
   rpcdump.cpp \
   rpcwallet.cpp \
   wallet.cpp \
   walletdb.cpp \
-  $(SpeedCoin_CORE_H)
+  $(SaveCoin_CORE_H)
 
-libSpeedCoin_common_a_SOURCES = \
+libSaveCoin_common_a_SOURCES = \
   allocators.cpp \
   chainparams.cpp \
   core.cpp \
@@ -134,45 +134,45 @@ libSpeedCoin_common_a_SOURCES = \
   sync.cpp \
   util.cpp \
   version.cpp \
-  $(SpeedCoin_CORE_H)
+  $(SaveCoin_CORE_H)
 
-libSpeedCoin_cli_a_SOURCES = \
+libSaveCoin_cli_a_SOURCES = \
   rpcclient.cpp \
-  $(SpeedCoin_CORE_H)
+  $(SaveCoin_CORE_H)
 
-nodist_libSpeedCoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
+nodist_libSaveCoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 #
 
-# SpeedCoind binary #
-SpeedCoind_LDADD = \
-  libSpeedCoin_server.a \
-  libSpeedCoin_cli.a \
-  libSpeedCoin_common.a \
+# SaveCoind binary #
+SaveCoind_LDADD = \
+  libSaveCoin_server.a \
+  libSaveCoin_cli.a \
+  libSaveCoin_common.a \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 if ENABLE_WALLET
-SpeedCoind_LDADD += libSpeedCoin_wallet.a
+SaveCoind_LDADD += libSaveCoin_wallet.a
 endif
-SpeedCoind_SOURCES = SpeedCoind.cpp
+SaveCoind_SOURCES = SaveCoind.cpp
 #
 
 if TARGET_WINDOWS
-SpeedCoind_SOURCES += SpeedCoind-res.rc
+SaveCoind_SOURCES += SaveCoind-res.rc
 endif
 
 AM_CPPFLAGS += $(BDB_CPPFLAGS)
-SpeedCoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
+SaveCoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
 
-# SpeedCoin-cli binary #
-SpeedCoin_cli_LDADD = \
-  libSpeedCoin_cli.a \
-  libSpeedCoin_common.a \
+# SaveCoin-cli binary #
+SaveCoin_cli_LDADD = \
+  libSaveCoin_cli.a \
+  libSaveCoin_common.a \
   $(BOOST_LIBS)
-SpeedCoin_cli_SOURCES = SpeedCoin-cli.cpp
+SaveCoin_cli_SOURCES = SaveCoin-cli.cpp
 #
 
 if TARGET_WINDOWS
-SpeedCoin_cli_SOURCES += SpeedCoin-cli-res.rc
+SaveCoin_cli_SOURCES += SaveCoin-cli-res.rc
 endif
 
 # NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race
@@ -183,7 +183,7 @@ leveldb/%.a:
 	  CC="$(CC)" PLATFORM=$(TARGET_OS) AR="$(AR)" $(LEVELDB_TARGET_FLAGS) \
 	  OPT="$(CXXFLAGS) $(CPPFLAGS)"
 
-qt/SpeedCoinstrings.cpp: $(libSpeedCoin_server_a_SOURCES) $(libSpeedCoin_common_a_SOURCES) $(libSpeedCoin_cli_a_SOURCES)
+qt/SaveCoinstrings.cpp: $(libSaveCoin_server_a_SOURCES) $(libSaveCoin_common_a_SOURCES) $(libSaveCoin_cli_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	@cd $(top_srcdir); XGETTEXT=$(XGETTEXT) share/qt/extract_strings_qt.py
 

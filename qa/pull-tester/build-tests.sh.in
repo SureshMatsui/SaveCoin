@@ -54,13 +54,13 @@ make -j$JOBS
 if [ -d "$OUT_DIR" -a -w "$OUT_DIR" ]; then
   set +e
   # Windows:
-  cp @abs_top_srcdir@/win32-build/src/SpeedCoind.exe $OUT_DIR/SpeedCoind.exe
-  cp @abs_top_srcdir@/win32-build/src/test/test_SpeedCoin.exe $OUT_DIR/test_SpeedCoin.exe
-  cp @abs_top_srcdir@/win32-build/src/qt/SpeedCoind-qt.exe $OUT_DIR/SpeedCoin-qt.exe
+  cp @abs_top_srcdir@/win32-build/src/SaveCoind.exe $OUT_DIR/SaveCoind.exe
+  cp @abs_top_srcdir@/win32-build/src/test/test_SaveCoin.exe $OUT_DIR/test_SaveCoin.exe
+  cp @abs_top_srcdir@/win32-build/src/qt/SaveCoind-qt.exe $OUT_DIR/SaveCoin-qt.exe
   # Linux:
-  cp @abs_top_srcdir@/linux-build/src/SpeedCoind $OUT_DIR/SpeedCoind
-  cp @abs_top_srcdir@/linux-build/src/test/test_SpeedCoin $OUT_DIR/test_SpeedCoin
-  cp @abs_top_srcdir@/linux-build/src/qt/SpeedCoind-qt $OUT_DIR/SpeedCoin-qt
+  cp @abs_top_srcdir@/linux-build/src/SaveCoind $OUT_DIR/SaveCoind
+  cp @abs_top_srcdir@/linux-build/src/test/test_SaveCoin $OUT_DIR/test_SaveCoin
+  cp @abs_top_srcdir@/linux-build/src/qt/SaveCoind-qt $OUT_DIR/SaveCoin-qt
   set -e
 fi
 

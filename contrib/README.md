@@ -2,11 +2,11 @@ Python Tools
 ---------------------
 
 ### [BitRPC](/contrib/bitrpc) ###
-Allows for sending of all standard SpeedCoin commands via RPC rather than as command line args.
+Allows for sending of all standard SaveCoin commands via RPC rather than as command line args.
 
 ### [PyMiner](/contrib/pyminer) ###
 
-This is a 'getwork' CPU mining client for SpeedCoin. It is pure-python, and therefore very, very slow.  The purpose is to provide a reference implementation of a miner, for study.
+This is a 'getwork' CPU mining client for SaveCoin. It is pure-python, and therefore very, very slow.  The purpose is to provide a reference implementation of a miner, for study.
 
 ### [SpendFrom](/contrib/spendfrom) ###
 
@@ -20,8 +20,8 @@ Repository Tools
 ---------------------
 
 ### [Debian](/contrib/debian) ###
-Contains files used to package SpeedCoind/SpeedCoin-qt
-for Debian-based Linux systems. If you compile SpeedCoind/SpeedCoin-qt yourself, there are some useful files here.
+Contains files used to package SaveCoind/SaveCoin-qt
+for Debian-based Linux systems. If you compile SaveCoind/SaveCoin-qt yourself, there are some useful files here.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
 Gavin's notes on getting gitian builds up and running using KVM.
@@ -37,13 +37,13 @@ Scripts and notes for Mac builds.
 
 ### [Qos](/contrib/qos) ###
 
-A Linux bash script that will set up tc to limit the outgoing bandwidth for connections to the SpeedCoin network. This means one can have an always-on SpeedCoind instance running, and another local SpeedCoind/SpeedCoin-qt instance which connects to this node and receives blocks from it.
+A Linux bash script that will set up tc to limit the outgoing bandwidth for connections to the SaveCoin network. This means one can have an always-on SaveCoind instance running, and another local SaveCoind/SaveCoin-qt instance which connects to this node and receives blocks from it.
 
 ### [Seeds](/contrib/seeds) ###
 Utility to generate the pnSeed[] array that is compiled into the client.
 
 ### [TestGen](/contrib/testgen) ###
-Utilities to generate test vectors for the data-driven SpeedCoin tests.
+Utilities to generate test vectors for the data-driven SaveCoin tests.
 
 ### [Test Patches](/contrib/test-patches) ###
 These patches are applied when the automated pull-tester

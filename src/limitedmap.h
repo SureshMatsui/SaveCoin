@@ -1,9 +1,9 @@
-// Copyright (c) 2012 The SpeedCoin developers
+// Copyright (c) 2012 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_LIMITEDMAP_H
-#define SpeedCoin_LIMITEDMAP_H
+#ifndef SaveCoin_LIMITEDMAP_H
+#define SaveCoin_LIMITEDMAP_H
 
 #include <assert.h> // TODO: remove
 #include <map>

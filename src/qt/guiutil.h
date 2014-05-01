@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The SpeedCoin developers
+// Copyright (c) 2011-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,7 +21,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the SpeedCoin Qt UI.
+/** Utility functions used by the SaveCoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -29,17 +29,17 @@ namespace GUIUtil
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
 
-    // Render SpeedCoin addresses in monospace font
-    QFont SpeedCoinAddressFont();
+    // Render SaveCoin addresses in monospace font
+    QFont SaveCoinAddressFont();
 
     // Set up widgets for address and amounts
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "SpeedCoin:" URI into recipient object, return true on successful parsing
-    bool parseSpeedCoinURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseSpeedCoinURI(QString uri, SendCoinsRecipient *out);
-    QString formatSpeedCoinURI(const SendCoinsRecipient &info);
+    // Parse "SaveCoin:" URI into recipient object, return true on successful parsing
+    bool parseSaveCoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseSaveCoinURI(QString uri, SendCoinsRecipient *out);
+    QString formatSaveCoinURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, qint64 amount);

@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The SpeedCoin developers
+// Copyright (c) 2009-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _SpeedCoin_COMPAT_H
-#define _SpeedCoin_COMPAT_H
+#ifndef _SaveCoin_COMPAT_H
+#define _SaveCoin_COMPAT_H
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT

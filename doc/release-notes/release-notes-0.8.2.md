@@ -1,11 +1,11 @@
-SpeedCoin-Qt version 0.8.2 is now available from:
-  http://sourceforge.net/projects/SpeedCoin/files/SpeedCoin/SpeedCoin-0.8.2/
+SaveCoin-Qt version 0.8.2 is now available from:
+  http://sourceforge.net/projects/SaveCoin/files/SaveCoin/SaveCoin-0.8.2/
 
 This is a maintenance release that fixes many bugs and includes
 a few small new features.
 
 Please report bugs using the issue tracker at github:
-  https://github.com/SpeedCoin/SpeedCoin/issues
+  https://github.com/SaveCoin/SaveCoin/issues
 
 
 How to Upgrade
@@ -13,7 +13,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait
 until it has completely shut down (which might take a few minutes for older
 versions), then run the installer (on Windows) or just copy over
-/Applications/SpeedCoin-Qt (on Mac) or SpeedCoind/SpeedCoin-qt (on Linux).
+/Applications/SaveCoin-Qt (on Mac) or SaveCoind/SaveCoin-qt (on Linux).
 
 If you are upgrading from version 0.7.2 or earlier, the first time you
 run 0.8.2 your blockchain files will be re-indexed, which will take
@@ -43,7 +43,7 @@ with code that automatically calculates and suggests appropriate fees in the
 0.9 release and note that if you set a fee policy significantly different from
 the rest of the network your transactions may never confirm.
 
-SpeedCoin-Qt changes
+SaveCoin-Qt changes
 
 * New icon and splash screen
 * Improve reporting of synchronization process
@@ -58,7 +58,7 @@ SpeedCoin-Qt changes
   to current translations
 
 MacOSX:
-* OSX support for click-to-pay (SpeedCoin:) links
+* OSX support for click-to-pay (SaveCoin:) links
 * Fix GUI disappearing problem on MacOSX (issue #1522)
 
 Linux/Unix:
@@ -97,8 +97,8 @@ Wallet compatibility/rescuing
 
 Known Bugs
 
-* Entering the 'getblocktemplate' or 'getwork' RPC commands into the SpeedCoin-Qt debug
-console will cause SpeedCoin-Qt to crash. Run SpeedCoin-Qt with the -server command-line
+* Entering the 'getblocktemplate' or 'getwork' RPC commands into the SaveCoin-Qt debug
+console will cause SaveCoin-Qt to crash. Run SaveCoin-Qt with the -server command-line
 option to workaround.
 
 Thanks to everybody who contributed to the 0.8.2 release!

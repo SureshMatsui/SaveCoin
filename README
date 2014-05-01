@@ -7,7 +7,7 @@ It includes the following generic improvements:
 - sends proper, incrementing 'id'
 - uses standard Python json lib
 
-It also includes the following SpeedCoin-specific details:
+It also includes the following SaveCoin-specific details:
 
 - sends Basic HTTP authentication headers
 - parses all JSON numbers that look like floats as Decimal
@@ -17,5 +17,5 @@ Installation:
 - change the first line of setup.py to point to the directory of your installation of python 2.*
 - run setup.py
 
-Note: This will only install SpeedCoinrpc. If you also want to install jsonrpc to preserve 
-backwards compatibility, you have to replace 'SpeedCoinrpc' with 'jsonrpc' in setup.py and run it again.
+Note: This will only install SaveCoinrpc. If you also want to install jsonrpc to preserve 
+backwards compatibility, you have to replace 'SaveCoinrpc' with 'jsonrpc' in setup.py and run it again.

@@ -1,4 +1,4 @@
-SpeedCoin               ICON    "pixmaps/SpeedCoin.ico"
+SaveCoin               ICON    "pixmaps/SaveCoin.ico"
 
 #include "wx/msw/wx.rc"
 

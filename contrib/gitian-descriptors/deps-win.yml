@@ -1,5 +1,5 @@
 ---
-name: "SpeedCoin-deps"
+name: "SaveCoin-deps"
 suites:
 - "precise"
 architectures:
@@ -124,5 +124,5 @@ script: |
     done
     #
     cd $INSTALLPREFIX
-    find include lib | sort | zip -X@ $OUTDIR/SpeedCoin-deps-win$BITS-gitian-r10.zip
+    find include lib | sort | zip -X@ $OUTDIR/SaveCoin-deps-win$BITS-gitian-r10.zip
   done # for BITS in

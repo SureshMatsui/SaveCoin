@@ -5,84 +5,84 @@ AM_CPPFLAGS += -I$(top_srcdir)/src \
   -I$(top_builddir)/src/qt/forms \
   $(PROTOBUF_CFLAGS) \
   $(QR_CFLAGS)
-bin_PROGRAMS = SpeedCoin-qt
-noinst_LIBRARIES = libSpeedCoinqt.a
+bin_PROGRAMS = SaveCoin-qt
+noinst_LIBRARIES = libSaveCoinqt.a
 SUBDIRS = $(BUILD_TEST_QT)
 DIST_SUBDIRS = test
 
-# SpeedCoin qt core #
+# SaveCoin qt core #
 QT_TS = \
-  locale/SpeedCoin_ach.ts \
-  locale/SpeedCoin_af_ZA.ts \
-  locale/SpeedCoin_ar.ts \
-  locale/SpeedCoin_be_BY.ts \
-  locale/SpeedCoin_bg.ts \
-  locale/SpeedCoin_bs.ts \
-  locale/SpeedCoin_ca_ES.ts \
-  locale/SpeedCoin_ca.ts \
-  locale/SpeedCoin_ca@valencia.ts \
-  locale/SpeedCoin_cmn.ts \
-  locale/SpeedCoin_cs.ts \
-  locale/SpeedCoin_cy.ts \
-  locale/SpeedCoin_da.ts \
-  locale/SpeedCoin_de_AT.ts \
-  locale/SpeedCoin_de.ts \
-  locale/SpeedCoin_el_GR.ts \
-  locale/SpeedCoin_en.ts \
-  locale/SpeedCoin_eo.ts \
-  locale/SpeedCoin_es_CL.ts \
-  locale/SpeedCoin_es_DO.ts \
-  locale/SpeedCoin_es_MX.ts \
-  locale/SpeedCoin_es.ts \
-  locale/SpeedCoin_es_UY.ts \
-  locale/SpeedCoin_et.ts \
-  locale/SpeedCoin_eu_ES.ts \
-  locale/SpeedCoin_fa_IR.ts \
-  locale/SpeedCoin_fa.ts \
-  locale/SpeedCoin_fi.ts \
-  locale/SpeedCoin_fr_CA.ts \
-  locale/SpeedCoin_fr.ts \
-  locale/SpeedCoin_gl.ts \
-  locale/SpeedCoin_gu_IN.ts \
-  locale/SpeedCoin_he.ts \
-  locale/SpeedCoin_hi_IN.ts \
-  locale/SpeedCoin_hr.ts \
-  locale/SpeedCoin_hu.ts \
-  locale/SpeedCoin_id_ID.ts \
-  locale/SpeedCoin_it.ts \
-  locale/SpeedCoin_ja.ts \
-  locale/SpeedCoin_ka.ts \
-  locale/SpeedCoin_kk_KZ.ts \
-  locale/SpeedCoin_ko_KR.ts \
-  locale/SpeedCoin_ky.ts \
-  locale/SpeedCoin_la.ts \
-  locale/SpeedCoin_lt.ts \
-  locale/SpeedCoin_lv_LV.ts \
-  locale/SpeedCoin_ms_MY.ts \
-  locale/SpeedCoin_nb.ts \
-  locale/SpeedCoin_nl.ts \
-  locale/SpeedCoin_pam.ts \
-  locale/SpeedCoin_pl.ts \
-  locale/SpeedCoin_pt_BR.ts \
-  locale/SpeedCoin_pt_PT.ts \
-  locale/SpeedCoin_ro_RO.ts \
-  locale/SpeedCoin_ru.ts \
-  locale/SpeedCoin_sah.ts \
-  locale/SpeedCoin_sk.ts \
-  locale/SpeedCoin_sl_SI.ts \
-  locale/SpeedCoin_sq.ts \
-  locale/SpeedCoin_sr.ts \
-  locale/SpeedCoin_sv.ts \
-  locale/SpeedCoin_th_TH.ts \
-  locale/SpeedCoin_tr.ts \
-  locale/SpeedCoin_uk.ts \
-  locale/SpeedCoin_ur_PK.ts \
-  locale/SpeedCoin_uz@Cyrl.ts \
-  locale/SpeedCoin_vi.ts \
-  locale/SpeedCoin_vi_VN.ts \
-  locale/SpeedCoin_zh_CN.ts \
-  locale/SpeedCoin_zh_HK.ts \
-  locale/SpeedCoin_zh_TW.ts
+  locale/SaveCoin_ach.ts \
+  locale/SaveCoin_af_ZA.ts \
+  locale/SaveCoin_ar.ts \
+  locale/SaveCoin_be_BY.ts \
+  locale/SaveCoin_bg.ts \
+  locale/SaveCoin_bs.ts \
+  locale/SaveCoin_ca_ES.ts \
+  locale/SaveCoin_ca.ts \
+  locale/SaveCoin_ca@valencia.ts \
+  locale/SaveCoin_cmn.ts \
+  locale/SaveCoin_cs.ts \
+  locale/SaveCoin_cy.ts \
+  locale/SaveCoin_da.ts \
+  locale/SaveCoin_de_AT.ts \
+  locale/SaveCoin_de.ts \
+  locale/SaveCoin_el_GR.ts \
+  locale/SaveCoin_en.ts \
+  locale/SaveCoin_eo.ts \
+  locale/SaveCoin_es_CL.ts \
+  locale/SaveCoin_es_DO.ts \
+  locale/SaveCoin_es_MX.ts \
+  locale/SaveCoin_es.ts \
+  locale/SaveCoin_es_UY.ts \
+  locale/SaveCoin_et.ts \
+  locale/SaveCoin_eu_ES.ts \
+  locale/SaveCoin_fa_IR.ts \
+  locale/SaveCoin_fa.ts \
+  locale/SaveCoin_fi.ts \
+  locale/SaveCoin_fr_CA.ts \
+  locale/SaveCoin_fr.ts \
+  locale/SaveCoin_gl.ts \
+  locale/SaveCoin_gu_IN.ts \
+  locale/SaveCoin_he.ts \
+  locale/SaveCoin_hi_IN.ts \
+  locale/SaveCoin_hr.ts \
+  locale/SaveCoin_hu.ts \
+  locale/SaveCoin_id_ID.ts \
+  locale/SaveCoin_it.ts \
+  locale/SaveCoin_ja.ts \
+  locale/SaveCoin_ka.ts \
+  locale/SaveCoin_kk_KZ.ts \
+  locale/SaveCoin_ko_KR.ts \
+  locale/SaveCoin_ky.ts \
+  locale/SaveCoin_la.ts \
+  locale/SaveCoin_lt.ts \
+  locale/SaveCoin_lv_LV.ts \
+  locale/SaveCoin_ms_MY.ts \
+  locale/SaveCoin_nb.ts \
+  locale/SaveCoin_nl.ts \
+  locale/SaveCoin_pam.ts \
+  locale/SaveCoin_pl.ts \
+  locale/SaveCoin_pt_BR.ts \
+  locale/SaveCoin_pt_PT.ts \
+  locale/SaveCoin_ro_RO.ts \
+  locale/SaveCoin_ru.ts \
+  locale/SaveCoin_sah.ts \
+  locale/SaveCoin_sk.ts \
+  locale/SaveCoin_sl_SI.ts \
+  locale/SaveCoin_sq.ts \
+  locale/SaveCoin_sr.ts \
+  locale/SaveCoin_sv.ts \
+  locale/SaveCoin_th_TH.ts \
+  locale/SaveCoin_tr.ts \
+  locale/SaveCoin_uk.ts \
+  locale/SaveCoin_ur_PK.ts \
+  locale/SaveCoin_uz@Cyrl.ts \
+  locale/SaveCoin_vi.ts \
+  locale/SaveCoin_vi_VN.ts \
+  locale/SaveCoin_zh_CN.ts \
+  locale/SaveCoin_zh_HK.ts \
+  locale/SaveCoin_zh_TW.ts
 
 QT_FORMS_UI = \
   forms/aboutdialog.ui \
@@ -107,10 +107,10 @@ QT_MOC_CPP = \
   moc_addressbookpage.cpp \
   moc_addresstablemodel.cpp \
   moc_askpassphrasedialog.cpp \
-  moc_SpeedCoinaddressvalidator.cpp \
-  moc_SpeedCoinamountfield.cpp \
-  moc_SpeedCoingui.cpp \
-  moc_SpeedCoinunits.cpp \
+  moc_SaveCoinaddressvalidator.cpp \
+  moc_SaveCoinamountfield.cpp \
+  moc_SaveCoingui.cpp \
+  moc_SaveCoinunits.cpp \
   moc_clientmodel.cpp \
   moc_coincontroldialog.cpp \
   moc_coincontroltreewidget.cpp \
@@ -148,31 +148,31 @@ QT_MOC_CPP = \
   moc_walletmodel.cpp \
   moc_walletview.cpp
 
-SpeedCoin_MM = \
+SaveCoin_MM = \
   macdockiconhandler.mm \
   macnotificationhandler.mm
 
 QT_MOC = \
-  SpeedCoin.moc \
+  SaveCoin.moc \
   intro.moc \
   overviewpage.moc \
   rpcconsole.moc
 
-QT_QRC_CPP = qrc_SpeedCoin.cpp
-QT_QRC = SpeedCoin.qrc
+QT_QRC_CPP = qrc_SaveCoin.cpp
+QT_QRC = SaveCoin.qrc
 
 PROTOBUF_CC = paymentrequest.pb.cc
 PROTOBUF_H = paymentrequest.pb.h
 PROTOBUF_PROTO = paymentrequest.proto
 
-SpeedCoin_QT_H = \
+SaveCoin_QT_H = \
   addressbookpage.h \
   addresstablemodel.h \
   askpassphrasedialog.h \
-  SpeedCoinaddressvalidator.h \
-  SpeedCoinamountfield.h \
-  SpeedCoingui.h \
-  SpeedCoinunits.h \
+  SaveCoinaddressvalidator.h \
+  SaveCoinamountfield.h \
+  SaveCoingui.h \
+  SaveCoinunits.h \
   clientmodel.h \
   coincontroldialog.h \
   coincontroltreewidget.h \
@@ -217,10 +217,10 @@ SpeedCoin_QT_H = \
 RES_ICONS = \
   res/icons/add.png \
   res/icons/address-book.png \
-  res/icons/SpeedCoin.ico \
-  res/icons/SpeedCoin.png \
-  res/icons/SpeedCoin_testnet.ico \
-  res/icons/SpeedCoin_testnet.png \
+  res/icons/SaveCoin.ico \
+  res/icons/SaveCoin.png \
+  res/icons/SaveCoin_testnet.ico \
+  res/icons/SaveCoin_testnet.png \
   res/icons/clock1.png \
   res/icons/clock2.png \
   res/icons/clock3.png \
@@ -259,12 +259,12 @@ RES_ICONS = \
   res/icons/tx_output.png \
   res/icons/tx_mined.png
 
-SpeedCoin_QT_CPP = \
-  SpeedCoin.cpp \
-  SpeedCoinaddressvalidator.cpp \
-  SpeedCoinamountfield.cpp \
-  SpeedCoingui.cpp \
-  SpeedCoinunits.cpp \
+SaveCoin_QT_CPP = \
+  SaveCoin.cpp \
+  SaveCoinaddressvalidator.cpp \
+  SaveCoinamountfield.cpp \
+  SaveCoingui.cpp \
+  SaveCoinunits.cpp \
   clientmodel.cpp \
   csvmodelwriter.cpp \
   guiutil.cpp \
@@ -282,7 +282,7 @@ SpeedCoin_QT_CPP = \
   utilitydialog.cpp
 
 if ENABLE_WALLET
-SpeedCoin_QT_CPP += \
+SaveCoin_QT_CPP += \
   addressbookpage.cpp \
   addresstablemodel.cpp \
   askpassphrasedialog.cpp \
@@ -317,40 +317,40 @@ RES_IMAGES = \
 
 RES_MOVIES = $(wildcard res/movies/spinner-*.png)
 
-SpeedCoin_RC = res/SpeedCoin-qt-res.rc
+SaveCoin_RC = res/SaveCoin-qt-res.rc
 
-libSpeedCoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
+libSaveCoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms $(QT_DBUS_INCLUDES)
-libSpeedCoinqt_a_SOURCES = $(SpeedCoin_QT_CPP) $(SpeedCoin_QT_H) $(QT_FORMS_UI) \
+libSaveCoinqt_a_SOURCES = $(SaveCoin_QT_CPP) $(SaveCoin_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
-nodist_libSpeedCoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_libSaveCoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP)
 
-BUILT_SOURCES = $(nodist_libSpeedCoinqt_a_SOURCES)
+BUILT_SOURCES = $(nodist_libSaveCoinqt_a_SOURCES)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# SpeedCoin-qt binary #
-SpeedCoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
+# SaveCoin-qt binary #
+SaveCoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms
-SpeedCoin_qt_SOURCES = SpeedCoin.cpp
+SaveCoin_qt_SOURCES = SaveCoin.cpp
 if TARGET_DARWIN
-  SpeedCoin_qt_SOURCES += $(SpeedCoin_MM)
+  SaveCoin_qt_SOURCES += $(SaveCoin_MM)
 endif
 if TARGET_WINDOWS
-  SpeedCoin_qt_SOURCES += $(SpeedCoin_RC)
+  SaveCoin_qt_SOURCES += $(SaveCoin_RC)
 endif
-SpeedCoin_qt_LDADD = libSpeedCoinqt.a $(LIBSpeedCoin_SERVER)
+SaveCoin_qt_LDADD = libSaveCoinqt.a $(LIBSaveCoin_SERVER)
 if ENABLE_WALLET
-SpeedCoin_qt_LDADD += $(LIBSpeedCoin_WALLET)
+SaveCoin_qt_LDADD += $(LIBSaveCoin_WALLET)
 endif
-SpeedCoin_qt_LDADD += $(LIBSpeedCoin_CLI) $(LIBSpeedCoin_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
+SaveCoin_qt_LDADD += $(LIBSaveCoin_CLI) $(LIBSaveCoin_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
-SpeedCoin_qt_LDFLAGS = $(QT_LDFLAGS)
+SaveCoin_qt_LDFLAGS = $(QT_LDFLAGS)
 
 # forms/foo.h -> forms/ui_foo.h
 QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
@@ -361,15 +361,15 @@ QT_QM=$(QT_TS:.ts=.qm)
 .PHONY: FORCE
 .SECONDARY: $(QT_QM)
 
-SpeedCoinstrings.cpp: FORCE
-	$(MAKE) -C $(top_srcdir)/src qt/SpeedCoinstrings.cpp
+SaveCoinstrings.cpp: FORCE
+	$(MAKE) -C $(top_srcdir)/src qt/SaveCoinstrings.cpp
 
-translate: SpeedCoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(SpeedCoin_QT_CPP) $(SpeedCoin_QT_H) $(SpeedCoin_MM)
+translate: SaveCoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(SaveCoin_QT_CPP) $(SaveCoin_QT_H) $(SaveCoin_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/SpeedCoin_en.ts
+	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/SaveCoin_en.ts
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_QM) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
-	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name SpeedCoin -o $(abs_builddir)/$@ $< || \
+	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name SaveCoin -o $(abs_builddir)/$@ $< || \
 	  echo error: could not build $@
 	$(SED) -i.bak -e '/^\*\*.*Created:/d' $@ && rm $@.bak
 	$(SED) -i.bak -e '/^\*\*.*by:/d' $@ && rm $@.bak

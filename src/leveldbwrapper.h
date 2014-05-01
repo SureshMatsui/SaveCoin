@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2013 The SpeedCoin developers
+// Copyright (c) 2012-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SpeedCoin_LEVELDBWRAPPER_H
-#define SpeedCoin_LEVELDBWRAPPER_H
+#ifndef SaveCoin_LEVELDBWRAPPER_H
+#define SaveCoin_LEVELDBWRAPPER_H
 
 #include "serialize.h"
 #include "util.h"
@@ -208,4 +208,4 @@ public:
     }
 };
 
-#endif // SpeedCoin_LEVELDBWRAPPER_H
+#endif // SaveCoin_LEVELDBWRAPPER_H

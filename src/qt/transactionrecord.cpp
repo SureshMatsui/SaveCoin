@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The SpeedCoin developers
+// Copyright (c) 2011-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,9 +52,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 sub.credit = txout.nValue;
                 if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
                 {
-                    // Received by SpeedCoin Address
+                    // Received by SaveCoin Address
                     sub.type = TransactionRecord::RecvWithAddress;
-                    sub.address = CSpeedCoinAddress(address).ToString();
+                    sub.address = CSaveCoinAddress(address).ToString();
                 }
                 else
                 {
@@ -113,9 +113,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 CTxDestination address;
                 if (ExtractDestination(txout.scriptPubKey, address))
                 {
-                    // Sent to SpeedCoin Address
+                    // Sent to SaveCoin Address
                     sub.type = TransactionRecord::SendToAddress;
-                    sub.address = CSpeedCoinAddress(address).ToString();
+                    sub.address = CSaveCoinAddress(address).ToString();
                 }
                 else
                 {

@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The SpeedCoin developers
+// Copyright (c) 2011-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,7 @@ namespace Ui {
     class RPCConsole;
 }
 
-/** Local SpeedCoin RPC console. */
+/** Local SaveCoin RPC console. */
 class RPCConsole: public QDialog
 {
     Q_OBJECT

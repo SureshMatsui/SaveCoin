@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The SpeedCoin developers
+// Copyright (c) 2009-2014 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _SpeedCoinRPC_PROTOCOL_H_
-#define _SpeedCoinRPC_PROTOCOL_H_ 1
+#ifndef _SaveCoinRPC_PROTOCOL_H_
+#define _SaveCoinRPC_PROTOCOL_H_ 1
 
 #include <list>
 #include <map>
@@ -30,7 +30,7 @@ enum HTTPStatusCode
     HTTP_INTERNAL_SERVER_ERROR = 500,
 };
 
-// SpeedCoin RPC error codes
+// SaveCoin RPC error codes
 enum RPCErrorCode
 {
     // Standard JSON-RPC 2.0 errors
@@ -51,7 +51,7 @@ enum RPCErrorCode
     RPC_DESERIALIZATION_ERROR       = -22, // Error parsing or validating structure in raw format
 
     // P2P client errors
-    RPC_CLIENT_NOT_CONNECTED        = -9,  // SpeedCoin is not connected
+    RPC_CLIENT_NOT_CONNECTED        = -9,  // SaveCoin is not connected
     RPC_CLIENT_IN_INITIAL_DOWNLOAD  = -10, // Still downloading initial blocks
     RPC_CLIENT_NODE_ALREADY_ADDED   = -23, // Node is already added
     RPC_CLIENT_NODE_NOT_ADDED       = -24, // Node has not been added before

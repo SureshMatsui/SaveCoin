@@ -1,27 +1,27 @@
-SpeedCoin Core version 0.9.0rc1 is now available from:
+SaveCoin Core version 0.9.0rc1 is now available from:
 
-  http://sourceforge.net/projects/SpeedCoin/files/SpeedCoin/SpeedCoin-0.9.0rc1/
+  http://sourceforge.net/projects/SaveCoin/files/SaveCoin/SaveCoin-0.9.0rc1/
 
 This is a release candidate for a new major version. A major version brings
 both new features and bug fixes.
 
 Please report bugs using the issue tracker at github:
 
-  https://github.com/SpeedCoin/SpeedCoin/issues
+  https://github.com/SaveCoin/SaveCoin/issues
 
 How to Upgrade
 --------------
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), uninstall all
-earlier versions of SpeedCoin, then run the installer (on Windows) or just copy
-over /Applications/SpeedCoin-Qt (on Mac) or SpeedCoind/SpeedCoin-qt (on Linux).
+earlier versions of SaveCoin, then run the installer (on Windows) or just copy
+over /Applications/SaveCoin-Qt (on Mac) or SaveCoind/SaveCoin-qt (on Linux).
 
 If you are upgrading from version 0.7.2 or earlier, the first time you run
 0.9.0 your blockchain files will be re-indexed, which will take anywhere from
 30 minutes to several hours, depending on the speed of your machine.
 
-On Windows, do not forget to uninstall all earlier versions of the SpeedCoin
+On Windows, do not forget to uninstall all earlier versions of the SaveCoin
 client first, especially if you are switching to the 64-bit version.
 
 Windows 64-bit installer
@@ -32,11 +32,11 @@ frequent reports of users running out of virtual memory on 32-bit systems
 during the initial sync. Because of this it is recommended to install the
 64-bit version if your system supports it.
 
-Rebranding to SpeedCoin Core
+Rebranding to SaveCoin Core
 ---------------------------
 
-To reduce confusion between SpeedCoin-the-network and SpeedCoin-the-software we
-have renamed the reference client to SpeedCoin Core.
+To reduce confusion between SaveCoin-the-network and SaveCoin-the-software we
+have renamed the reference client to SaveCoin Core.
 
 Autotools build system
 -----------------------
@@ -44,20 +44,20 @@ Autotools build system
 For 0.9.0 we switched to an autotools-based build system instead of individual
 (q)makefiles.
 
-Using the standard “./autogen.sh; ./configure; make” to build SpeedCoin-Qt and
-SpeedCoind makes it easier for experienced open source developers to contribute
+Using the standard “./autogen.sh; ./configure; make” to build SaveCoin-Qt and
+SaveCoind makes it easier for experienced open source developers to contribute
 to the project.
 
 Be sure to check doc/build-*.md for your platform before building from source.
 
-SpeedCoin-cli
+SaveCoin-cli
 -------------
 
-Another change in the 0.9 release is moving away from the SpeedCoind executable
+Another change in the 0.9 release is moving away from the SaveCoind executable
 functioning both as a server and as a RPC client. The RPC client functionality
-(“tell the running SpeedCoin daemon to do THIS”) was split into a separate
-executable, 'SpeedCoin-cli'. The RPC client code will eventually be removed from
-SpeedCoind, but will be kept for backwards compatibility for a release or two.
+(“tell the running SaveCoin daemon to do THIS”) was split into a separate
+executable, 'SaveCoin-cli'. The RPC client code will eventually be removed from
+SaveCoind, but will be kept for backwards compatibility for a release or two.
 
 `walletpassphrase` RPC
 -----------------------
@@ -113,13 +113,13 @@ RPC:
 Command-line options:
 
 - Rename option '-tor' to '-onion' to better reflect what it does
-- Add '-disablewallet' mode to let SpeedCoind run entirely without wallet (when
+- Add '-disablewallet' mode to let SaveCoind run entirely without wallet (when
   built with wallet)
 - Update default '-rpcsslciphers' to include TLSv1.2
 - make '-logtimestamps' default on and rework help-message
 - RPC client option: '-rpcwait', to wait for server start
 - Remove '-logtodebugger'
-- Allow `-noserver` with SpeedCoind
+- Allow `-noserver` with SaveCoind
 
 Block-chain handling and storage:
 
@@ -165,7 +165,7 @@ Protocol and network:
 - Improve logging of failed connections
 - Bump protocol version to 70002
 - Add some additional logging to give extra network insight
-- Added new DNS seed from SpeedCoinstats.com
+- Added new DNS seed from SaveCoinstats.com
 
 Validation:
 
@@ -206,18 +206,18 @@ GUI:
 - Add Coin Control Features
 - Improve receive coins workflow: make the 'Receive' tab into a form to request
   payments, and move historical address list functionality to File menu.
-- Rebrand to `SpeedCoin Core`
+- Rebrand to `SaveCoin Core`
 - Move initialization/shutdown to a thread. This prevents “Not responding”
   messages during startup. Also show a window during shutdown.
 - Don't regenerate autostart link on every client startup
-- Show and store message of normal SpeedCoin:URI
+- Show and store message of normal SaveCoin:URI
 - Fix richtext detection hang issue on very old Qt versions
 - osx: Make use of the 10.8+ user notification center to display growl like
        notifications
 - osx: Added NSHighResolutionCapable flag to Info.plist for better font
        rendering on Retina displays.
-- osx: Fix SpeedCoin-qt startup crash when clicking dock icon
-- linux: Fix Gnome SpeedCoin: URI handler
+- osx: Fix SaveCoin-qt startup crash when clicking dock icon
+- linux: Fix Gnome SaveCoin: URI handler
 
 Miscellaneous:
 
@@ -225,7 +225,7 @@ Miscellaneous:
 - Add '-regtest' mode, similar to testnet but private with instant block
   generation with 'setgenerate' RPC.
 - Add 'linearize.py' script to contrib, for creating bootstrap.dat
-- Add separate SpeedCoin-cli client
+- Add separate SaveCoin-cli client
 
 Credits
 --------

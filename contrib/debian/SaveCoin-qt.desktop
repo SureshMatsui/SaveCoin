@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=SaveCoin
+Comment=SaveCoin P2P Cryptocurrency
+Comment[fr]=SaveCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=SaveCoin, eşten eşe kriptografik sanal para birimi
+Exec=SaveCoin-qt %u
+Terminal=false
+Type=Application
+Icon=SaveCoin128
+MimeType=x-scheme-handler/SaveCoin;
+Categories=Office;Finance;

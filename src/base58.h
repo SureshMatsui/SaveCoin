@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The SpeedCoin developers
+// Copyright (c) 2009-2013 The SaveCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,8 +11,8 @@
 // - E-mail usually won't line-break if there's no punctuation to break at.
 // - Double-clicking selects the whole number as one word if it's all alphanumeric.
 //
-#ifndef SpeedCoin_BASE58_H
-#define SpeedCoin_BASE58_H
+#ifndef SaveCoin_BASE58_H
+#define SaveCoin_BASE58_H
 
 #include "bignum.h"
 #include "chainparams.h"
@@ -253,25 +253,25 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
-/** base58-encoded SpeedCoin addresses.
+/** base58-encoded SaveCoin addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CSpeedCoinAddress;
-class CSpeedCoinAddressVisitor : public boost::static_visitor<bool>
+class CSaveCoinAddress;
+class CSaveCoinAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CSpeedCoinAddress *addr;
+    CSaveCoinAddress *addr;
 public:
-    CSpeedCoinAddressVisitor(CSpeedCoinAddress *addrIn) : addr(addrIn) { }
+    CSaveCoinAddressVisitor(CSaveCoinAddress *addrIn) : addr(addrIn) { }
     bool operator()(const CKeyID &id) const;
     bool operator()(const CScriptID &id) const;
     bool operator()(const CNoDestination &no) const;
 };
 
-class CSpeedCoinAddress : public CBase58Data
+class CSaveCoinAddress : public CBase58Data
 {
 public:
     bool Set(const CKeyID &id) {
@@ -286,7 +286,7 @@ public:
 
     bool Set(const CTxDestination &dest)
     {
-        return boost::apply_visitor(CSpeedCoinAddressVisitor(this), dest);
+        return boost::apply_visitor(CSaveCoinAddressVisitor(this), dest);
     }
 
     bool IsValid() const
@@ -297,21 +297,21 @@ public:
         return fCorrectSize && fKnownVersion;
     }
 
-    CSpeedCoinAddress()
+    CSaveCoinAddress()
     {
     }
 
-    CSpeedCoinAddress(const CTxDestination &dest)
+    CSaveCoinAddress(const CTxDestination &dest)
     {
         Set(dest);
     }
 
-    CSpeedCoinAddress(const std::string& strAddress)
+    CSaveCoinAddress(const std::string& strAddress)
     {
         SetString(strAddress);
     }
 
-    CSpeedCoinAddress(const char* pszAddress)
+    CSaveCoinAddress(const char* pszAddress)
     {
         SetString(pszAddress);
     }
@@ -343,12 +343,12 @@ public:
     }
 };
 
-bool inline CSpeedCoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
-bool inline CSpeedCoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
-bool inline CSpeedCoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
+bool inline CSaveCoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
+bool inline CSaveCoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
+bool inline CSaveCoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
 
 /** A base58-encoded secret key */
-class CSpeedCoinSecret : public CBase58Data
+class CSaveCoinSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret)
@@ -383,18 +383,18 @@ public:
         return SetString(strSecret.c_str());
     }
 
-    CSpeedCoinSecret(const CKey& vchSecret)
+    CSaveCoinSecret(const CKey& vchSecret)
     {
         SetKey(vchSecret);
     }
 
-    CSpeedCoinSecret()
+    CSaveCoinSecret()
     {
     }
 };
 
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CSpeedCoinExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CSaveCoinExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -409,14 +409,14 @@ public:
         return ret;
     }
 
-    CSpeedCoinExtKeyBase(const K &key) {
+    CSaveCoinExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CSpeedCoinExtKeyBase() {}
+    CSaveCoinExtKeyBase() {}
 };
 
-typedef CSpeedCoinExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CSpeedCoinExtKey;
-typedef CSpeedCoinExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CSpeedCoinExtPubKey;
+typedef CSaveCoinExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CSaveCoinExtKey;
+typedef CSaveCoinExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CSaveCoinExtPubKey;
 
-#endif // SpeedCoin_BASE58_H
+#endif // SaveCoin_BASE58_H
