@@ -72,7 +72,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "SaveCoin Signed Message:\n";
+const string strMessageMagic = "SpeedCoin Signed Message:\n";
 
 // Internal stuff
 namespace {
