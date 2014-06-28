@@ -35,7 +35,7 @@ public:
         pchMessageStart[3] = 0x13;
         vAlertPubKey = ParseHex("04fc9702847840aaf195de8442ebecedf5b095cdbb9bc716bda9110971b28a49e0ead8564ff0db22209e0374782c093bb899692d524e9d6a6956e7c5ecbcd68284");
         nDefaultPort = 9934;
-        nRPCPort = 9934;
+        nRPCPort = 9933; // RPC != DefaultPort
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 32);
         nSubsidyHalvingInterval = 500000;
 
